@@ -1,0 +1,390 @@
+import DirectedCountingFormalization
+import Counting.Network
+import Counting.Vista
+import Counting.AllLeaders
+import Counting.CreditLoss
+import Counting.FlatHistory
+import Counting.LowerAllLeaders
+import Counting.Executable
+import Counting.LinearSolver
+import Counting.TailExposure
+import Counting.LowerOneLeader
+import Counting.CoreCertificate
+import Counting.CoreHistory
+import Counting.CoreCompleteness
+import Counting.HistoryPrefix
+import Counting.CoreTiming
+import Counting.FlatMatrix
+import Counting.TwoCenter
+import Counting.FixedLeaders
+import Counting.CreditHistory
+import Counting.CreditConsequences
+import Counting.Simulation
+import Counting.SupportBound
+import Counting.SupportBitLength
+import Counting.ForwardFibers
+import Counting.ShortAuditCompleteness
+import Counting.BalancedVertexCounts
+import Counting.BalancedAuxiliaryVertex
+import Counting.LowerSeveral
+import Counting.LowerSeveralExact
+import Counting.TimingProtocolCorrectness
+import Counting.CountAllocation
+import Counting.Optimality
+import Counting.LowerSeveralExtension
+import Counting.LowerSeveralVista
+import Counting.RealizabilityNecessity
+import Counting.RealizabilityAllocation
+import Counting.RealizabilityConstructionGraph
+import Counting.DagSemanticsUpdate
+import Counting.DagSemanticsInjective
+import Counting.RealizabilityConstructionConnected
+import Counting.RealizabilityComplete
+import Counting.DagSemanticsView
+import Counting.VistaPrefixMerge
+import Counting.RealizabilityThreshold
+import Counting.RealizabilityWitnessBits
+import Counting.DagSemanticsLabels
+import Counting.DagSemanticsValidityIteration
+import Counting.RealizabilityRecognitionBits
+import Counting.RealizabilityKnowledge
+import Counting.RealizabilityVerifierBounds
+import Counting.ExecutableRefinementEquivalence
+import Counting.ExecutableRefinementCorrectness
+import Counting.ExecutableRefinementPhysical
+import Counting.ExecutableRefinementTests
+import Counting.ExecutableRefinementCorePhysical
+import Counting.X3CShifted
+import Counting.X3CDeduplicate
+import Counting.HardnessPathSums
+import Counting.HardnessAlternativeNonleaders
+import Counting.HardnessBaseline
+import Counting.HardnessExhaustive
+import Counting.ExternalThreeDM
+
+import Counting.HardnessLeaderReduction
+import Counting.SolverInvocation
+import Counting.ComplexityModel
+import Counting.MachineFrame
+import Counting.MachineShift
+import Counting.EncodingVerifier
+import Counting.ExternalReductionChain
+
+import Counting.LabelBoundsBits
+import Counting.CountingSizeEncoding
+import Counting.EncodingRecognition
+
+import Counting.GaussianMinorBounds
+import Counting.ComplexityComposition
+import Counting.ExternalEncoding
+import Counting.EncodingNetworkAlternate
+import Counting.DagSemanticsSyntax
+import Counting.GaussianPhysicalBounds
+import Counting.ExternalCookLevin
+import Counting.ExternalCookLevinSize
+import Counting.ComplexityInclusions
+import Counting.GaussianIntermediatePhysical
+import Counting.MachineArithmeticClean
+import Counting.MachineArithmeticCompare
+import Counting.HardnessEncodedPipeline
+import Counting.StackCompilerComplete
+import Counting.X3CEncodingCNF
+import Counting.X3CEncodingValidation
+import Counting.MachineArithmeticAddition
+
+import Counting.MachineUnaryArithmetic
+
+import Counting.StackEncodingNatural
+
+import Counting.StackEncodingPairNatural
+
+import Counting.StackEncodingBranch
+
+import Counting.StackPolynomialLength
+
+import Counting.StackEmitNatural
+
+import Counting.StackCompareLengthPreserving
+
+import Counting.MachineNormalize
+
+import Counting.MachineFramedCompare
+
+import Counting.MachineArithmeticMultiply
+
+import Counting.ExternalCookLevinCounterCost
+
+import Counting.StackEmitSyntax
+
+import Counting.MachineFramedNumericCompare
+
+import Counting.MachineArithmeticDivision
+import Counting.MachineArithmeticGcd
+import Counting.StackEncodingBoundedCount
+import Counting.ExternalOneHotGenerator
+import Counting.ExternalTransitionEmission
+import Counting.BinaryEuclidIterations
+import Counting.StackLookupDrop
+import Counting.StackLookupPreserving
+import Counting.StackEncodingListCorrespondence
+import Counting.StackEncodingArrayMachine
+import Counting.StackFrameReadPreserving
+import Counting.ExternalTransitionCellCost
+import Counting.ExternalTransitionLoop
+import Counting.ExternalFinalClause
+import Counting.ExternalInitialAdjacent
+import Counting.MachineArithmeticSigned
+import Counting.MachineArithmeticSignedMultiply
+import Counting.StackRoutineRelocate
+import Counting.StackRoutineClean
+import Counting.StackFrameReplaceArray
+import Counting.StackEncodingDagMachine
+import Counting.StackRationalNormalize
+import Counting.MachineRationalNormalize
+import Counting.MachineRationalInverse
+import Counting.ExternalFormulaSerialization
+import Counting.ExternalInitialGenerator
+import Counting.ExternalFormulaTotalCount
+import Counting.ExternalGeneratorBodyCost
+import Counting.ExternalGeneratorPrepare
+import Counting.StackEncodingIncomingCorrectness
+import Counting.MachineRationalProduct
+import Counting.MachineRationalAddition
+import Counting.MachineRationalNegation
+import Counting.MachineRationalCast
+
+import Counting.MachineRationalPredicates
+import Counting.MachineRationalToNat
+import Counting.MachineRationalPositiveIntegral
+import Counting.MachineRationalSubtraction
+
+import Counting.MachineRationalEquality
+import Counting.StackEncodingDagReadMachine
+import Counting.ExternalCookLevinMachine
+
+import Counting.StackEncodingDagReadPreserving
+import Counting.StackEncodingBoundedNatural
+import Counting.StackBooleanFold
+import Counting.StackBooleanPrefix
+import Counting.StackCompareLengthEquality
+import Counting.MachinePositiveNaturals
+import Counting.MachineRowScaleGaussian
+import Counting.MachineRowAdd
+import Counting.MachineRowAxpyGaussian
+import Counting.ExternalSATSemantics
+import Counting.MachineBooleanDecision
+import Counting.StackDagParentBounds
+import Counting.StackDagInitial
+import Counting.StackDagRedBounds
+import Counting.ExternalSATMachine
+import Counting.StackGaussianEntry
+import Counting.MachineMatrixSwapGaussian
+import Counting.StoredGaussianMatrixOperations
+import Counting.ExternalCNFThreeSATSerialization
+import Counting.MachineTestMemo
+import Counting.StackDagRedPrefix
+import Counting.StackEmitTripleSelected
+import Counting.StackRoutineClearSelected
+import Counting.StackMachineTestMemo
+import Counting.StackDagNodeCheck
+import Counting.DagClosureCriterion
+import Counting.ExternalCNFValidate
+import Counting.ExternalCNFFresh
+import Counting.ExternalCNFAtom
+import Counting.MachineGaussianPivot
+import Counting.MachineMatrixScaleGaussian
+import Counting.MachineMatrixAxpyGaussian
+import Counting.StackDagNodesPrefix
+import Counting.StackDagDistinctPrefix
+import Counting.StackDagDistinctSpec
+import Counting.DagDistinctCriterion
+import Counting.ExternalCNFFormulaSerialization
+import Counting.EncodingGaussianOperation
+import Counting.StackEmitIndex
+import Counting.StackGaussianTranscript
+import Counting.StackDagCoverCriterion
+
+import Counting.StackDagValidatorSyntax
+import Counting.ExternalThreeSATVerifierMachine
+
+import Counting.GaussianSerializedBounds
+import Counting.StoredGaussianDirectSolve
+import Counting.StackGaussianInput
+
+import Counting.ExternalMatchingDimensions
+import Counting.StackRealizabilityCountsSpec
+
+import Counting.RealizabilityInitialCountScan
+
+import Counting.GaussianSolverPolynomial
+
+import Counting.MachineGaussianPolynomial
+
+import Counting.ExternalMatchingSerialization
+import Counting.StackRealizabilityBottom
+import Counting.RealizabilityCompactGraph
+import Counting.StackRealizabilityInitialChecked
+import Counting.MachineRowDot
+import Counting.GaussianNormalMatrix
+import Counting.ExternalMatchingValidation
+import Counting.StackRealizabilityChildPrefix
+import Counting.StackRealizabilityWeightedAccumulate
+import Counting.RealizabilityDemandScan
+import Counting.StackMachineTestLazy
+import Counting.RealizabilityCompactBitGraph
+import Counting.ExternalMatchingMachine
+import Counting.StackRealizabilityRoundGuards
+import Counting.MachineGaussianNormal
+import Counting.StackRealizabilityLevelPrefix
+import Counting.StackRealizabilitySupplyPrefix
+import Counting.StackRealizabilityMassBounds
+import Counting.StackRealizabilityPreservingPass
+import Counting.MachineGaussianCheck
+import Counting.GaussianSolveLinearSpec
+import Counting.ExternalMatchingInputValidation
+import Counting.StackRealizabilityDemandPrefix
+import Counting.StackRealizabilityBitLookup
+
+import Counting.MachineGaussianAnchorPolynomial
+
+import Counting.ExternalCoverMachine
+
+import Counting.StackUnaryDivisibleThree
+
+import Counting.ExternalCoverInputValidity
+
+import Counting.StackRealizabilityReachPass
+
+import Counting.ExternalCoverInputMachine
+
+import Counting.StackRealizabilityReachCompact
+
+import Counting.RealizabilityCompactFields
+
+import Counting.ExternalCoverVerifierMachine
+import Counting.ExternalCoverNormalizePrevious
+import Counting.X3CEncodingNormalize
+import Counting.StackRealizabilityMaskSpec
+import Counting.StackRealizabilityIncoming
+import Counting.StackRealizabilityMassFlags
+import Counting.StackAnchorCoefficient
+import Counting.ExternalCoverNormalizeBounds
+import Counting.ExternalCoverNormalizeRaw
+import Counting.StackBinaryPredecessor
+import Counting.RealizabilityCompactArcTable
+import Counting.StackRealizabilityActiveVector
+import Counting.StackRealizabilityNodeIncidence
+import Counting.StackAnchorMatrixBounds
+import Counting.StackAnchorLeaderBounds
+import Counting.StackAnchorMatrixFinish
+import Counting.AnchorMatrixOrder
+import Counting.StackAnchorMatrixWidth
+import Counting.ExternalCoefficientStream
+import Counting.ExternalCoefficientInputSemantics
+import Counting.ExternalCoefficientHeader
+import Counting.StackRealizabilityGraphTables
+import Counting.StackAnchorMatrixComplete
+
+import Counting.ExternalCoefficientMachine
+import Counting.MachineAnchorMatrixPhysical
+import Counting.MachineAnchorSolvePhysical
+import Counting.StackRealizabilityGraphCheckSpec
+import Counting.StackRealizabilitySelectedIncidence
+import Counting.StackRealizabilityIncidenceSpec
+import Counting.StackRealizabilityChildPreserved
+import Counting.StackRealizabilitySupplyPreserved
+import Counting.StackRealizabilityDemandPreserved
+import Counting.StackRealizabilityMassFile
+import Counting.ExternalCoverNormalizeComplete
+
+import Counting.HardnessNetworkMachineEncodingSpec
+
+import Counting.MachineAuditPositive
+
+import Counting.StackRealizabilityMassSpec
+
+import Counting.StackRealizabilityMassInputBounds
+
+import Counting.StackRealizabilityPointFile
+
+import Counting.StackRealizabilityPointNumeric
+
+import Counting.RealizabilityPointValuesSpec
+import Counting.MachineAuditSum
+import Counting.MachineAuditCandidate
+import Counting.RealizabilityMaskValuesSpec
+import Counting.RealizabilityRoundCheckSpec
+import Counting.HardnessNetworkMachineSizes
+import Counting.HardnessNetworkMachineBuildBounds
+import Counting.HardnessNetworkMachineGeneratorBounds
+import Counting.HardnessNetworkMachineReductionSpec
+import Counting.EncodingArrayUpdateBounds
+import Counting.StackAuditPropagationStep
+import Counting.StackRealizabilityPointTables
+import Counting.StackRealizabilityOutsideVector
+import Counting.HardnessNetworkMachineReduction
+import Counting.DagCanonicalBounds
+import Counting.DagUpdateSizeBounds
+import Counting.PropagationEncodingBounds
+import Counting.StackRealizabilityRoundCorrectness
+import Counting.RealizabilityRoundInputBounds
+import Counting.DagReferenceEncodingBounds
+import Counting.StackDagAddCountBounds
+import Counting.StackAuditPropagationInput
+import Counting.StackAuditPropagationRounds
+import Counting.StackAuditPropagationDownBounds
+import Counting.AuditPropagationInputBounds
+import Counting.StackAuditPropagationPreparedBounds
+import Counting.StackDagReferenceLookup
+import Counting.StackRealizabilityDecision
+import Counting.MachineAuditPropagation
+import Counting.DagReindexPrefixBounds
+import Counting.StackDagParentRemap
+import Counting.StackDagReindexBounds
+import Counting.ComplexityBooleanVerifier
+import Counting.StackDagNodeMapBounds
+import Counting.DagInternListSpec
+import Counting.StackAuditAscendBinary
+import Counting.AuditAscendSpec
+import Counting.StackAuditAscendBounds
+import Counting.StackDagIntern
+import Counting.MachineAuditBalance
+import Counting.StackRealizabilityVistaMachine
+import Counting.StackRealizabilityFixedOrderMachine
+import Counting.DagImportPrefixBounds
+import Counting.StackAuditDescendantAt
+import Counting.MachineAuditPostSolver
+import Counting.StackDagImportBudgetBounds
+import Counting.AuditDescendantSuffix
+import Counting.MachineDagImport
+import Counting.StackAuditDescendantLevel
+import Counting.StackAuditDescendantAncestor
+import Counting.NetworkRecognitionMachine
+import Counting.StackBranchNonempty
+import Counting.StackAuditDescendantCheck
+import Counting.StackAuditPrefixOpening
+import Counting.StackAuditPrefixCountClassify
+import Counting.StackAuditPrefixCountCompare
+import Counting.NetworkVistaDegreeSpec
+
+import Counting.StackDagComparePreserving
+
+import Counting.DagCanonicalSortSpec
+
+import Counting.NetworkVistaInitialSpec
+
+import Counting.NetworkVistaReadBounds
+
+import Counting.NetworkVistaDegreeActual
+
+import Counting.NetworkVistaBundleSpec
+
+import Counting.NetworkVistaBundle
+
+import Counting.InputMultisetCorrectness
+import Counting.InputMultisetCompactCorrectness
+import Counting.FullTransitionRealizability
+import Counting.SmallFullPrefix
+
+/-! Formalization of anonymous counting. The complete formal-claim proofs
+and their dependencies are recorded in claims.json and checked by AllProofs. -/

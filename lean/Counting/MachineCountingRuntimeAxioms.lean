@@ -1,0 +1,7 @@
+import Counting.MachineCountingRuntimeTheorems
+
+#print axioms Counting.StackMachine.ProtocolAdvance.physical_inputWord_horizon
+#print axioms Counting.Machine.CountingRuntime.live_input_bound
+#print axioms Counting.Machine.CountingRuntime.LocalRuntimeBound.mono
+#print axioms Counting.Machine.CountingRuntime.local_runtime_polynomial
+#print axioms Counting.Machine.CountingRuntime.local_runtime_under_polynomial_arc_bound

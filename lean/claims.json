@@ -1,0 +1,3623 @@
+{
+  "schema_version": 3,
+  "paper": {
+    "path": "../paper.tex",
+    "theorem_environment_count": 26,
+    "formal_statement_count": 24,
+    "title": "Computation in Anonymous Directed Dynamic Networks: Exact Worst-Case Termination Time and Network-Wise Intractability"
+  },
+  "scope": "Every clause of every formal lemma, theorem and corollary in the current manuscript, including runtime and complexity results, together with their required proof dependencies.",
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "theorem_occurrences": [
+    {
+      "environment": "lemma",
+      "title": null,
+      "label": "lem:flat-anonymities",
+      "claim_id": "flat-level",
+      "statement_tex": "Let \\(\\mathcal L_r\\) be a full and flat level of a vista, with\n\\(r\\geq1\\).  The flow equations on \\(\\mathcal L_r\\), together with \\(\\ell\\),\nuniquely determine the anonymities of the nodes of \\(\\mathcal L_r\\).\\qed"
+    },
+    {
+      "environment": "lemma",
+      "title": null,
+      "label": "lem:credit-refinement-split",
+      "claim_id": "credit-refinement",
+      "statement_tex": "Let \\(v_1,\\ldots,v_k\\) be the children of\n\\(u\\in\\mathcal L_{r-1}\\) in \\(\\mathcal L_r\\).\nThen \\(\\sum_{i=1}^k c(v_i)\\leq c(u)\\).\nIf equality holds and \\(\\anon(v_j)\\leq\\cand(v_j)\\) for some child $v_j$,\nthen \\(u\\) has exactly one child \\(v_1\\); moreover,\n\\(\\agents(v_1)=\\agents(u)\\) and \\(\\cand(v_1)=\\cand(u)\\)."
+    },
+    {
+      "environment": "lemma",
+      "title": null,
+      "label": "lem:minimum-ratio-closure-split",
+      "claim_id": "minimum-ratio-closure",
+      "statement_tex": "If \\(\\bigcup_{u\\in\\mathcal Q}\\agents(u)\n=\\bigcup_{v\\in\\mathcal D}\\agents(v)\\),\nthen \\(\\mathcal L_r\\) is full and every node in it has ratio\n\\(\\alpha\\)."
+    },
+    {
+      "environment": "lemma",
+      "title": null,
+      "label": "lem:credit-loss-split",
+      "claim_id": "credit-loss",
+      "statement_tex": "For every \\(1\\leq r\\leq h\\),\n\\(\\Phi_r\\leq\\Phi_{r-1}\\).\nIf equality holds for any \\(r\\), then \\(m=n\\)."
+    },
+    {
+      "environment": "theorem",
+      "title": "Core algorithm",
+      "label": "thm:one-leader",
+      "claim_id": "core-algorithm",
+      "statement_tex": "For every \\(1\\leq\\ell\\leq n\\), the core algorithm makes all agents output \\(n\\)\nand halt at round \\(2n-1\\). All local computations take time polynomial in $n$ (assuming the network has at most \\(2^{\\rm{poly}(n)}\\) arcs per round)."
+    },
+    {
+      "environment": "theorem",
+      "title": null,
+      "label": "thm:exact-termination",
+      "claim_id": "exact-termination",
+      "statement_tex": "The exact worst-case termination time for Counting is\n\\[\n T(n,\\ell)=\n \\begin{cases}\n  n&\\text{if }n=\\ell,\\\\\n  2n-1&\\text{if \\(n>\\ell\\) and \\(\\ell=1\\)},\\\\\n  2n-2&\\text{if \\(n>\\ell\\) and \\(\\ell\\geq2\\)}.\n \\end{cases}\n\\]\nAll local computations take time polynomial in $n$ (assuming the network has at most \\(2^{\\rm{poly}(n)}\\) arcs per round).\\qed"
+    },
+    {
+      "environment": "theorem",
+      "title": null,
+      "label": "thm:main-conp-complete",
+      "claim_id": "vista-complete",
+      "statement_tex": "\\textnormal{\\textsc{AtMostOneVista}} is \\(\\mathsf{coNP}\\)-complete.\nHardness holds even for realizable vistas with one leader.\\qed"
+    },
+    {
+      "environment": "lemma",
+      "title": null,
+      "label": null,
+      "claim_id": "flat-level",
+      "statement_tex": "Let \\(\\mathcal L_r\\) be a full and flat level of a vista, with\n\\(r\\geq1\\).  The flow equations on \\(\\mathcal L_r\\), together with \\(\\ell\\),\nuniquely determine the anonymities of the nodes of \\(\\mathcal L_r\\)."
+    },
+    {
+      "environment": "lemma",
+      "title": null,
+      "label": "lem:tail-exposure",
+      "claim_id": "tail-exposure",
+      "statement_tex": "In a vista \\(\\mathcal V_t\\), the fibers of the nodes in\n\\(\\mathcal L_r\\), where \\(0\\leq r\\leq t\\), together contain at\nleast \\(\\min\\{n,t-r+1\\}\\) agents."
+    },
+    {
+      "environment": "lemma",
+      "title": null,
+      "label": "lem:forward-fibers",
+      "claim_id": "forward-fibers",
+      "statement_tex": "Let \\(S\\subsetneq V\\) contain every leader. Suppose that, for each\n\\(1\\leq r\\leq h\\), every node in \\(\\mathcal H_{r-1}\\) whose fiber\nis contained in \\(S\\) has no outgoing arc from that fiber to\n\\(V\\setminus S\\) in round \\(r\\). Then \\(h\\leq |S|-\\ell\\)."
+    },
+    {
+      "environment": "lemma",
+      "title": null,
+      "label": "lem:multi-leader-test",
+      "claim_id": "short-audit",
+      "statement_tex": "For \\(\\ell\\geq2\\), this test rejects every candidate\n\\(\\ell<m<n\\) and accepts \\(m=n>\\ell\\) at round \\(2n-2\\)."
+    },
+    {
+      "environment": "lemma",
+      "title": null,
+      "label": "lem:two-center-graph",
+      "claim_id": "two-center",
+      "statement_tex": "Let \\(U,W\\) be disjoint nonempty sets of agents, with \\(|U|=\\ell\\).\nChoose \\(z\\in U\\), \\(z'\\in W\\), and \\(c\\in\\{1,\\ell\\}\\).\nAn arrow \\(X\\xrightarrow{d}Y\\) denotes \\(d\\) arcs from each agent of \\(X\\)\nto each agent of \\(Y\\); an agent may replace a singleton set.\nThe graph on \\(U\\cup W\\) consisting of exactly the arcs\n\\[\n z\\xrightarrow{c}W,\\qquad\n z'\\xrightarrow{1}U,\\qquad\n U\\setminus\\{z\\}\\xrightarrow{\\ell/c}z,\\qquad\n W\\setminus\\{z'\\}\\xrightarrow{\\ell}z\n\\]\nis loopless and strongly connected.\nEach agent of \\(U\\setminus\\{z\\}\\) receives only \\(z'\\)'s old vista and has\noutdegree \\(\\ell/c\\); each agent of \\(W\\) receives \\(c\\) copies of \\(z\\)'s\nold vista and has outdegree \\(\\ell\\)."
+    },
+    {
+      "environment": "theorem",
+      "title": null,
+      "label": "thm:several-leader-vista",
+      "claim_id": "several-leader-vista",
+      "statement_tex": "For every \\(n>\\ell\\ge2\\), there are dynamic networks of orders \\(n\\) and\n\\(n+\\ell-1\\), each with exactly \\(\\ell\\) leaders, whose designated leaders\nhave identical vistas through round \\(2n-3\\).\nEvery round graph is a strongly connected loopless directed multigraph,\nwith arc multiplicities at most \\(\\ell\\) and outdegrees at most \\(\\ell^2\\)."
+    },
+    {
+      "environment": "lemma",
+      "title": null,
+      "label": "lem:conp-bounded-orders",
+      "claim_id": "bounded-orders",
+      "statement_tex": "If \\(\\mathcal V\\) admits two different compatible orders, two\ncan be chosen at most \\(K+\\ell+2\\), with polynomial bit length\nin \\(s\\)."
+    },
+    {
+      "environment": "corollary",
+      "title": null,
+      "label": "cor:conp-pumping",
+      "claim_id": "pumping",
+      "statement_tex": "Let $\\mathcal V$ be a vista with $\\ell$ leaders. If it has a\nrealization of order $N$ whose observer has a proper initial causal\nsupport $\\Gamma_0\\ne V$, then\n\\[\n  \\{N,N+1,N+2,\\ldots\\}\\subseteq\n  \\operatorname{Spec}_{\\ell}(\\mathcal V).\n\\]\nMoreover, with $K=(1+\\nu M)^t$ as above, either all compatible orders\nare at most $K$, or there is an integer $N_*\\le K+\\ell+1$ such that\n\\[\n  \\{N_*,N_*+1,N_*+2,\\ldots\\}\\subseteq\n  \\operatorname{Spec}_{\\ell}(\\mathcal V).\n\\]\nIn particular, every order spectrum is finite or cofinite."
+    },
+    {
+      "environment": "lemma",
+      "title": null,
+      "label": "lem:conp-balanced-vertex",
+      "claim_id": "balanced-vertex",
+      "statement_tex": "Let \\(D\\) be a directed multigraph on \\(V\\cup\\{z\\}\\), with\n\\(V\\neq\\varnothing\\).  Suppose every ordered pair of vertices in\n\\(V\\) is joined by a directed path, \\(z\\) has no loop, and\n\\(d^-(z)=d^+(z)\\).  The arcs at \\(z\\) can be paired so that replacing\neach pair \\(a\\to z\\to b\\) by \\(a\\to b\\) leaves a strongly\nconnected graph on \\(V\\)."
+    },
+    {
+      "environment": "lemma",
+      "title": null,
+      "label": "lem:conp-transition",
+      "claim_id": "full-transition-realizability",
+      "statement_tex": "Let \\(\\mathcal T_{r-1},\\mathcal T_r\\) be the old and new node sets\nof a proposed full history-tree prefix, with parent map\n\\(\\pi:\\mathcal T_r\\to\\mathcal T_{r-1}\\).  New node \\(v\\) has\nanonymity \\(\\anon(v)\\geq1\\) and outdegree \\(d(v)\\).  Each agent in\nits fiber must receive \\(\\mu(u,v)\\) arcs from the fiber of old\nnode \\(u\\).  Assume the flow equations\n\\begin{equation}\n \\sum_{v:\\pi(v)=u}\\anon(v)d(v)\n =\\sum_{w\\in\\mathcal T_r}\\anon(w)\\mu(u,w)\n \\qquad(u\\in\\mathcal T_{r-1}).\n \\label{eq:conp-full-flow}\n\\end{equation}\nPut \\(N=\\sum_v \\anon(v)\\).  For \\(N>1\\), these data have a strongly\nconnected round realization exactly when every new node has positive\noutdegree and positive incoming degree, and the digraph on\n\\(\\mathcal T_r\\) with arcs\n\\(v\\to w\\) whenever \\(d(v)>0\\) and \\(\\mu(\\pi(v),w)>0\\)\nis strongly connected.  For \\(N=1\\), balance alone suffices."
+    },
+    {
+      "environment": "lemma",
+      "title": null,
+      "label": "lem:conp-normal-form",
+      "claim_id": "small-full-prefix",
+      "statement_tex": "If \\(\\mathcal V\\) has a realization of order \\(N\\), it has one\nof the same order and leader count whose full levels\n\\(\\mathcal T_0,\\ldots,\\mathcal T_t\\) satisfy\n\\[\n |\\mathcal T_r|\\leq\\sum_{j=0}^r|\\mathcal L_j|+r+2.\n\\]\nIts anonymities, outdegrees, and multiplicities have\n\\(O(s+\\log N)\\) bits.  The entire full-prefix description has\nlength polynomial in \\(s+\\log N\\)."
+    },
+    {
+      "environment": "lemma",
+      "title": null,
+      "label": "lem:conp-fixed-order",
+      "claim_id": "fixed-order",
+      "statement_tex": "Whether \\(N\\in\\operatorname{Spec}_{\\ell}(\\mathcal V)\\) is in\n\\(\\mathsf{NP}\\), with certificate length polynomial in\n\\(s+\\log N\\)."
+    },
+    {
+      "environment": "theorem",
+      "title": null,
+      "label": "thm:conp-vista-membership",
+      "claim_id": "vista-membership",
+      "statement_tex": "In the model of \\Cref{sec:model}, \\textnormal{\\textsc{AtMostOneVista}}\nbelongs to \\(\\mathsf{coNP}\\)."
+    },
+    {
+      "environment": "theorem",
+      "title": null,
+      "label": "thm:conp-network-membership",
+      "claim_id": "network-membership",
+      "statement_tex": "\\textnormal{\\textsc{SomeAgentKnows}} belongs to \\(\\mathsf{coNP}\\)."
+    },
+    {
+      "environment": "lemma",
+      "title": null,
+      "label": "lem:conp-digits",
+      "claim_id": "x3c-digits",
+      "statement_tex": "For nonnegative integers \\(x_0,\\ldots,x_m\\), the equation\n\\begin{equation}\n A x_0+\\sum_{j=1}^m c_jx_j=A\n \\label{eq:target}\n\\end{equation}\nhas the reference solution \\(x_0=1,\\ x_1=\\cdots=x_m=0\\).\nEvery other solution has \\(x_0=0\\), and its nonzero coordinates\n\\(x_j\\) select an exact cover. Conversely, every exact cover gives\nsuch a solution. In every solution,\n\\(\\sum_{i=0}^m x_i\\leq q\\)."
+    },
+    {
+      "environment": "lemma",
+      "title": null,
+      "label": "lem:conp-path-prefix",
+      "claim_id": "path-prefix",
+      "statement_tex": "For any sizes \\(a_i\\geq B\\) with \\(\\sum_i c_i a_i=C\\), the labeled\nhistory-tree prefix through round \\(B-1\\), without fiber\ncardinalities, is the same.\nAfter round \\(r\\), for \\(1\\leq r\\leq B-1\\), group \\(i\\) has\nthe \\(r\\) singleton classes\n\\[\n \\{x_{i,1}\\},\\ldots,\\{x_{i,r}\\}\n\\]\nand the single nonempty suffix class\n\\(\\{x_{i,r+1},\\ldots,x_{i,a_i}\\}\\).\nAll groups have distinct histories."
+    },
+    {
+      "environment": "lemma",
+      "title": null,
+      "label": "lem:conp-first-full",
+      "claim_id": "first-exhaustive",
+      "statement_tex": "In every realization of \\(\\mathcal V\\), \\(S_1=V\\)."
+    },
+    {
+      "environment": "theorem",
+      "title": null,
+      "label": "thm:conp-vista-complete",
+      "claim_id": "vista-complete",
+      "statement_tex": "\\textnormal{\\textsc{AtMostOneVista}} is \\(\\mathsf{coNP}\\)-complete, even on realizable vistas with one leader."
+    },
+    {
+      "environment": "theorem",
+      "title": null,
+      "label": "thm:conp-network-complete",
+      "claim_id": "network-complete",
+      "statement_tex": "\\textnormal{\\textsc{SomeAgentKnows}} is \\(\\mathsf{coNP}\\)-complete, even for one-leader inputs whose round graphs\nare loopless."
+    }
+  ],
+  "claims": [
+    {
+      "id": "model-network",
+      "title": "Finite directed multigraphs and nonempty-cut characterization of strong connectivity",
+      "kind": "specification",
+      "area": "model",
+      "status": "verified",
+      "statement": "On a finite nonempty agent set, every nonempty proper subset has a positive outgoing multiplicity iff every ordered pair is joined by a directed path; loops and parallel arcs are allowed.",
+      "sources": [
+        {
+          "context_label": "sec:model"
+        }
+      ],
+      "dependencies": [],
+      "lean_declarations": [
+        "Counting.cutConnected_iff",
+        "Counting.Admissible.leaderCount_le_card"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "model-protocol",
+      "title": "Local deterministic protocol with late outdegree and silent halting",
+      "kind": "specification",
+      "area": "model",
+      "status": "verified",
+      "statement": "A single population-independent protocol receives only leader count, leader bit, previous local state, received multiset and current outdegree, sends the previous state before learning that outdegree, and ceases sending/updating after output.",
+      "sources": [
+        {
+          "context_label": "sec:model"
+        }
+      ],
+      "dependencies": [
+        "model-network"
+      ],
+      "lean_declarations": [
+        "Counting.Protocol.trace_eq_decode",
+        "Counting.Protocol.halted_forever"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "history-refinement",
+      "title": "History partitions refine and preserve initial status",
+      "kind": "unnumbered",
+      "area": "history",
+      "status": "verified",
+      "statement": "History partitions refine and preserve initial status",
+      "sources": [
+        {
+          "context_label": "sec:model"
+        }
+      ],
+      "dependencies": [
+        "model-network"
+      ],
+      "lean_declarations": [
+        "DirectedCounting.sameMultigraphHistory_of_succ",
+        "DirectedCounting.PaperHistory.fiber_subset_parent",
+        "DirectedCounting.PaperHistory.label_parent"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "same-history-same-state",
+      "title": "History equality implies equality of states for every protocol",
+      "kind": "unnumbered",
+      "area": "history",
+      "status": "verified",
+      "statement": "For each common leader count, equal full-information histories imply equal states, outputs and activity status, even across different population sizes and in protocols that halt silently.",
+      "sources": [
+        {
+          "context_label": "sec:model"
+        },
+        {
+          "context_label": "app:termination-lower-bounds"
+        }
+      ],
+      "dependencies": [
+        "history-refinement",
+        "model-protocol"
+      ],
+      "lean_declarations": [
+        "Counting.Protocol.same_history_same_status",
+        "Counting.history_eq_iff_sameMultigraphHistory",
+        "Counting.Protocol.same_class_same_status"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "history-fibers",
+      "title": "History nodes have nonempty partition fibers and a unique parent",
+      "kind": "unnumbered",
+      "area": "history",
+      "status": "verified",
+      "statement": "History nodes have nonempty partition fibers and a unique parent",
+      "sources": [
+        {
+          "context_label": "sec:model"
+        }
+      ],
+      "dependencies": [
+        "history-refinement"
+      ],
+      "lean_declarations": [
+        "DirectedCounting.PaperHistory.anonymity_pos",
+        "DirectedCounting.PaperHistory.fibers_pairwiseDisjoint",
+        "DirectedCounting.PaperHistory.all_fibers_union",
+        "DirectedCounting.forgetMultigraphHistoryClass_surjective",
+        "DirectedCounting.PaperHistory.fiber_subset_parent"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "history-labels",
+      "title": "Incoming multiplicities and outdegree labels are constant on fibers",
+      "kind": "unnumbered",
+      "area": "history",
+      "status": "verified",
+      "statement": "Incoming multiplicities and outdegree labels are constant on fibers",
+      "sources": [
+        {
+          "context_label": "sec:model"
+        }
+      ],
+      "dependencies": [
+        "history-refinement"
+      ],
+      "lean_declarations": [
+        "DirectedCounting.PaperHistory.input_eq_of_mem_fiber",
+        "DirectedCounting.PaperHistory.outdegree_eq_label",
+        "DirectedCounting.PaperHistory.incoming_eq_redMultiplicity"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "vista-isomorphism",
+      "title": "History equality is equivalent to labeled vista isomorphism",
+      "kind": "unnumbered",
+      "area": "history",
+      "status": "verified",
+      "statement": "History equality is equivalent to labeled vista isomorphism",
+      "sources": [
+        {
+          "context_label": "sec:model"
+        }
+      ],
+      "dependencies": [
+        "history-fibers",
+        "history-labels",
+        "causal-visibility",
+        "same-history-same-state"
+      ],
+      "lean_declarations": [
+        "Counting.VistaIsomorphism.eq_iff_nonempty_iso",
+        "Counting.VistaIsomorphism.actual_history_eq_iff_actualIso",
+        "Counting.VistaIsomorphism.ActualIso.same_protocol_status"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "vista-update",
+      "title": "Match-and-merge computes the observer vista while all agents remain active",
+      "kind": "unnumbered",
+      "area": "representation",
+      "status": "verified",
+      "statement": "Match-and-merge computes the observer vista while all agents remain active",
+      "sources": [
+        {
+          "context_label": "sec:model"
+        }
+      ],
+      "dependencies": [
+        "vista-isomorphism",
+        "model-protocol"
+      ],
+      "lean_declarations": [
+        "Counting.Executable.physical_vista_update",
+        "Counting.Executable.physical_vista_run_correct"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "vista-dag-refinement",
+      "title": "Shared DAG canonical signatures implement abstract vista match-and-merge",
+      "kind": "implementation",
+      "area": "representation",
+      "status": "verified",
+      "statement": "A shared finite DAG with canonical signatures and binary multiplicity counts denotes exactly the abstract labeled vista; implementation does not expand repeated subhistories into trees.",
+      "sources": [
+        {
+          "context_label": "sec:model"
+        },
+        {
+          "context_label": "sec:core-algorithm"
+        }
+      ],
+      "dependencies": [
+        "vista-isomorphism"
+      ],
+      "lean_declarations": [
+        "Counting.Executable.decodeNode_injective",
+        "Counting.Executable.decodedLevel_eq_levels",
+        "Counting.Executable.levelNodes_length_eq_visible_card",
+        "Counting.Executable.input_decode",
+        "Counting.Executable.parent_decode",
+        "Counting.Executable.degree_decode",
+        "Counting.Executable.red_decode",
+        "Counting.Executable.updateVista_sound",
+        "Counting.Executable.updateVista_total",
+        "Counting.Executable.updateMany_valid",
+        "Counting.Executable.initial_updateMany_total"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "exhaustive-prefix",
+      "title": "Fullness of one level implies fullness of all previous levels",
+      "kind": "unnumbered",
+      "area": "history",
+      "status": "verified",
+      "statement": "Fullness of one level implies fullness of all previous levels",
+      "sources": [
+        {
+          "context_label": "sec:model"
+        }
+      ],
+      "dependencies": [
+        "history-fibers",
+        "causal-visibility"
+      ],
+      "lean_declarations": [
+        "Counting.HistoryPrefix.exhaustive_prefix_at_round",
+        "Counting.HistoryPrefix.visible_parent_at_round"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "h1-refinement",
+      "title": "H1: visible fibers are disjoint; child and total anonymity bounds with equality criteria",
+      "kind": "unnumbered",
+      "area": "history",
+      "status": "verified",
+      "statement": "H1: visible fibers are disjoint; child and total anonymity bounds with equality criteria",
+      "sources": [
+        {
+          "context_label": "sec:four-properties"
+        }
+      ],
+      "dependencies": [
+        "history-fibers"
+      ],
+      "lean_declarations": [
+        "DirectedCounting.PaperHistory.fibers_pairwiseDisjoint",
+        "DirectedCounting.PaperHistory.visible_mass_le",
+        "DirectedCounting.PaperHistory.visible_mass_eq_iff_exhaustive",
+        "DirectedCounting.PaperHistory.children_mass_le",
+        "DirectedCounting.PaperHistory.children_mass_eq_iff"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "h2-leaders",
+      "title": "H2: leader-status inheritance and leader anonymity accounting",
+      "kind": "unnumbered",
+      "area": "history",
+      "status": "verified",
+      "statement": "H2: leader-status inheritance and leader anonymity accounting",
+      "sources": [
+        {
+          "context_label": "sec:four-properties"
+        }
+      ],
+      "dependencies": [
+        "history-fibers",
+        "history-refinement"
+      ],
+      "lean_declarations": [
+        "DirectedCounting.PaperHistory.label_parent",
+        "DirectedCounting.PaperHistory.label_mass_le",
+        "DirectedCounting.PaperHistory.label_mass_eq"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "h3-flow",
+      "title": "H3 and Flow: exact arc counts and equality of incoming and outgoing totals",
+      "kind": "unnumbered",
+      "area": "history",
+      "status": "verified",
+      "statement": "H3 and Flow: exact arc counts and equality of incoming and outgoing totals",
+      "sources": [
+        {
+          "context_label": "sec:four-properties"
+        }
+      ],
+      "dependencies": [
+        "history-labels",
+        "history-fibers"
+      ],
+      "lean_declarations": [
+        "DirectedCounting.PaperHistory.flow_incoming",
+        "DirectedCounting.PaperHistory.flow_outgoing",
+        "DirectedCounting.PaperHistory.flow_balance"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "causal-visibility",
+      "title": "A node is visible iff its fiber meets the observer causal support",
+      "kind": "unnumbered",
+      "area": "history",
+      "status": "verified",
+      "statement": "A node is visible iff its fiber meets the observer causal support",
+      "sources": [
+        {
+          "context_label": "app:causal-support"
+        }
+      ],
+      "dependencies": [
+        "history-fibers",
+        "history-labels",
+        "history-refinement"
+      ],
+      "lean_declarations": [
+        "Counting.sees_iff_causal_support",
+        "Counting.visible_iff_sees",
+        "Counting.visible_iff_fiber_meets_support"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "causal-expansion",
+      "title": "Causal support is nested and strictly expands backward while proper",
+      "kind": "unnumbered",
+      "area": "history",
+      "status": "verified",
+      "statement": "Causal support is nested and strictly expands backward while proper",
+      "sources": [
+        {
+          "context_label": "app:causal-support"
+        },
+        {
+          "context_label": "app:optimizations"
+        }
+      ],
+      "dependencies": [
+        "model-network",
+        "causal-visibility"
+      ],
+      "lean_declarations": [
+        "Counting.mem_causalSupport_succ",
+        "Counting.causalSupport_backward_subset",
+        "Counting.causalSupport_strict_expansion"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "h4-delay",
+      "title": "H4: level r is full whenever t >= r+n-1",
+      "kind": "unnumbered",
+      "area": "history",
+      "status": "verified",
+      "statement": "H4: level r is full whenever t >= r+n-1",
+      "sources": [
+        {
+          "context_label": "sec:four-properties"
+        }
+      ],
+      "dependencies": [
+        "causal-expansion",
+        "causal-visibility"
+      ],
+      "lean_declarations": [
+        "Counting.exhaustive_after_delay",
+        "Counting.vista_level_exhaustive"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "positive-kernel",
+      "title": "An irreducible nonnegative-off-diagonal matrix with a positive kernel vector has a one-dimensional kernel",
+      "kind": "unnumbered",
+      "area": "algebra",
+      "status": "verified",
+      "statement": "For the flat-flow matrix M and strictly positive x with Mx=0, every rational or real solution z satisfies z=lambda*x; propagation from a zero coordinate uses strong connectivity.",
+      "sources": [
+        {
+          "context_label": "app:flat-anonymities"
+        }
+      ],
+      "dependencies": [],
+      "lean_declarations": [
+        "Counting.FlatMatrix.kernel_proportional"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "leader-normalization",
+      "title": "A positive leader-count equation uniquely fixes the kernel scale",
+      "kind": "unnumbered",
+      "area": "algebra",
+      "status": "verified",
+      "statement": "A positive leader-count equation uniquely fixes the kernel scale",
+      "sources": [
+        {
+          "context_label": "app:flat-anonymities"
+        }
+      ],
+      "dependencies": [
+        "h2-leaders",
+        "positive-kernel"
+      ],
+      "lean_declarations": [
+        "Counting.FlatLevel.flow_solution_unique_of_leader_total",
+        "Counting.FlatHistory.flat_level_anonymities_unique"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "candidate-test",
+      "title": "The five-step candidate test and rejection conditions",
+      "kind": "implementation",
+      "area": "algorithm",
+      "status": "verified",
+      "statement": "The executable test agrees with structure checks, largest-flat anchor, uniquely solved positive integral anonymities summing to m, backward flow checks, and suffix descendant bounds.",
+      "sources": [
+        {
+          "context_label": "sec:core-algorithm"
+        }
+      ],
+      "dependencies": [
+        "vista-dag-refinement",
+        "exact-gaussian"
+      ],
+      "lean_declarations": [
+        "Counting.Executable.audit_pass",
+        "Counting.Executable.fullCertificate_audit",
+        "Counting.Executable.audit_isSome_iff_pass"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "candidate-conservation",
+      "title": "Backward propagation preserves candidate total and leader total at every earlier level",
+      "kind": "unnumbered",
+      "area": "algorithm",
+      "status": "verified",
+      "statement": "Backward propagation preserves candidate total and leader total at every earlier level",
+      "sources": [
+        {
+          "context_label": "sec:core-algorithm"
+        }
+      ],
+      "dependencies": [
+        "history-fibers",
+        "h2-leaders"
+      ],
+      "lean_declarations": [
+        "Counting.CreditHistory.PrefixChecks.candidate_total",
+        "Counting.CreditHistory.PrefixChecks.candidate_leader_total"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "credit-initial-bound",
+      "title": "Initial total credit is at most m-1",
+      "kind": "unnumbered",
+      "area": "algorithm",
+      "status": "verified",
+      "statement": "Initial total credit is at most m-1",
+      "sources": [
+        {
+          "context_label": "sec:core-algorithm"
+        }
+      ],
+      "dependencies": [
+        "candidate-conservation",
+        "h2-leaders"
+      ],
+      "lean_declarations": [
+        "Counting.CreditHistory.PrefixChecks.initial_credit_bound"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "suffix-credit",
+      "title": "Passing the suffix test forces credit at least the increase in visible node count",
+      "kind": "unnumbered",
+      "area": "algorithm",
+      "status": "verified",
+      "statement": "Passing the suffix test forces credit at least the increase in visible node count",
+      "sources": [
+        {
+          "context_label": "sec:core-algorithm"
+        }
+      ],
+      "dependencies": [
+        "h1-refinement",
+        "history-fibers"
+      ],
+      "lean_declarations": [
+        "Counting.CoreHistory.PaperChecks.suffix_credit_bound"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "nonflat-growth",
+      "title": "Each nonflat transition with a visible child per parent increases node count",
+      "kind": "unnumbered",
+      "area": "algorithm",
+      "status": "verified",
+      "statement": "Each nonflat transition with a visible child per parent increases node count",
+      "sources": [
+        {
+          "context_label": "sec:core-algorithm"
+        }
+      ],
+      "dependencies": [
+        "h1-refinement"
+      ],
+      "lean_declarations": [
+        "Counting.CoreCertificate.card_lt_of_nonflat",
+        "Counting.CoreCompleteness.card_strict_of_nonflat"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "core-reject-false",
+      "title": "Every candidate m<n is rejected by the core test",
+      "kind": "unnumbered",
+      "area": "algorithm",
+      "status": "verified",
+      "statement": "Every candidate m<n is rejected by the core test",
+      "sources": [
+        {
+          "context_label": "sec:core-algorithm"
+        }
+      ],
+      "dependencies": [
+        "credit-loss",
+        "credit-initial-bound",
+        "suffix-credit",
+        "nonflat-growth",
+        "candidate-test",
+        "vista-update"
+      ],
+      "lean_declarations": [
+        "Counting.Executable.core_audit_reject_lt"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "flat-exists",
+      "title": "A full n-level prefix contains a flat level",
+      "kind": "unnumbered",
+      "area": "algorithm",
+      "status": "verified",
+      "statement": "A full n-level prefix contains a flat level",
+      "sources": [
+        {
+          "context_label": "sec:core-algorithm"
+        }
+      ],
+      "dependencies": [
+        "history-fibers",
+        "nonflat-growth"
+      ],
+      "lean_declarations": [
+        "Counting.CoreCompleteness.exists_flat_step",
+        "Counting.CoreCompleteness.exists_last_flat_anchor"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "core-accept-true",
+      "title": "Candidate n passes every core-test check at round 2n-1",
+      "kind": "unnumbered",
+      "area": "algorithm",
+      "status": "verified",
+      "statement": "Candidate n passes every core-test check at round 2n-1",
+      "sources": [
+        {
+          "context_label": "sec:core-algorithm"
+        }
+      ],
+      "dependencies": [
+        "flat-level",
+        "flat-exists",
+        "exhaustive-prefix",
+        "h3-flow",
+        "candidate-test"
+      ],
+      "lean_declarations": [
+        "Counting.Executable.core_audit_accept_true"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "core-simultaneous",
+      "title": "No agent halts before the core true-candidate test; all halt there together",
+      "kind": "unnumbered",
+      "area": "algorithm",
+      "status": "verified",
+      "statement": "No agent halts before the core true-candidate test; all halt there together",
+      "sources": [
+        {
+          "context_label": "sec:core-algorithm"
+        }
+      ],
+      "dependencies": [
+        "core-reject-false",
+        "core-accept-true",
+        "vista-update",
+        "model-protocol"
+      ],
+      "lean_declarations": [
+        "Counting.Executable.executableCore_simultaneous",
+        "Counting.Executable.executableCore_solves_counting",
+        "Counting.Executable.binary_core_network_at_stop",
+        "Counting.Executable.binary_core_network_step_total",
+        "Counting.Executable.binary_core_network_silent_after"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "one-system",
+      "title": "Each candidate test solves at most one linear system with at most n variables",
+      "kind": "unnumbered",
+      "area": "cost",
+      "status": "verified",
+      "statement": "Each candidate test solves at most one linear system with at most n variables",
+      "sources": [
+        {
+          "context_label": "sec:core-algorithm"
+        }
+      ],
+      "dependencies": [
+        "candidate-test",
+        "h1-refinement"
+      ],
+      "lean_declarations": [
+        "Counting.Executable.audit_one_system",
+        "Counting.Executable.audit_system_width_le_population",
+        "Counting.Executable.binary_network_one_system",
+        "Counting.Executable.binary_core_network_one_system"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "exact-gaussian",
+      "title": "Exact rational Gaussian elimination is correct and complete for uniqueness, positivity and integrality checks",
+      "kind": "implementation",
+      "area": "algorithm",
+      "status": "verified",
+      "statement": "A total executable exact solver returns either the unique solution or a justified singular/inconsistent result; positive integral solutions and their sum are checked exactly. Bridge rational solution semantics to the paper flow equations.",
+      "sources": [
+        {
+          "context_label": "sec:core-algorithm"
+        }
+      ],
+      "dependencies": [
+        "vista-dag-refinement"
+      ],
+      "lean_declarations": [
+        "Counting.Executable.solveLinear_sound",
+        "Counting.Executable.solveLinear_unique",
+        "Counting.Executable.solveLinear_complete_of_unique",
+        "Counting.Executable.solveLinear_none_iff",
+        "Counting.Executable.positiveNaturals_iff",
+        "Counting.Executable.anchorRows_satisfied_iff",
+        "Counting.Executable.intrinsic_of_rows",
+        "Counting.Executable.fullCertificate_solver",
+        "Counting.Executable.AuditExtracted.anchor_total_weights",
+        "Counting.StoredGaussian.solve_eq"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "binary-label-bound",
+      "title": "The arc bound implies polynomial bit length for labels and coefficients",
+      "kind": "unnumbered",
+      "area": "cost",
+      "status": "verified",
+      "statement": "The arc bound implies polynomial bit length for labels and coefficients",
+      "sources": [
+        {
+          "context_label": "sec:core-algorithm"
+        }
+      ],
+      "dependencies": [
+        "vista-dag-refinement",
+        "h3-flow"
+      ],
+      "lean_declarations": [
+        "Counting.Executable.labels_size_of_arc_power",
+        "Counting.Executable.anchor_coefficient_size_of_arc_power",
+        "Counting.Executable.anchorRows_rhs",
+        "Counting.Executable.polynomial_arc_label_bound"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "gaussian-bit-cost",
+      "title": "Reduced exact Gaussian elimination has polynomial bit complexity",
+      "kind": "unnumbered",
+      "area": "cost",
+      "status": "verified",
+      "statement": "Bound intermediate rational numerator/denominator bit sizes and execution time polynomially in variable count and coefficient bit length; this is not implied merely by a field-operation count.",
+      "sources": [
+        {
+          "context_label": "sec:core-algorithm"
+        }
+      ],
+      "dependencies": [
+        "exact-gaussian",
+        "machine-arithmetic"
+      ],
+      "lean_declarations": [
+        "Counting.StoredGaussian.solve_eq",
+        "Counting.StoredGaussian.transcript_length_le",
+        "Counting.GaussianBits.determinant_bits",
+        "Counting.GaussianBits.fraction_components",
+        "Counting.GaussianBits.minor_quotient_bits",
+        "Counting.GaussianBits.normal_system_bits",
+        "Counting.GaussianBits.solveLinear_output_bits",
+        "Counting.GaussianBits.physical_normal_system_bits",
+        "Counting.GaussianBits.physical_anchor_solution_bits",
+        "Counting.GaussianBits.storedGaussian_integral_prefix_bits",
+        "Counting.GaussianBits.normalSystem_all_intermediate_bits",
+        "Counting.GaussianBits.normalSystem_all_operation_bits",
+        "Counting.GaussianBits.physical_anchor_intermediate_bits",
+        "Counting.GaussianBits.physical_anchor_operation_bits",
+        "Counting.GaussianBits.row_add_temporary_bits",
+        "Counting.GaussianBits.raw_product_bits",
+        "Counting.GaussianBits.raw_addition_bits",
+        "Counting.StoredGaussian.scale_augmentedRow_clean",
+        "Counting.Machine.rowAdd_clean",
+        "Counting.StoredGaussian.add_augmentedRow_clean",
+        "Counting.Machine.positiveNaturals_array_clean",
+        "Counting.StoredGaussian.swap_augmentedMatrix_clean",
+        "Counting.StackMachine.GaussianEntry.inspect_executes",
+        "Counting.StoredGaussian.scale_augmentedMatrix",
+        "Counting.StoredGaussian.add_augmentedMatrix",
+        "Counting.Machine.gaussianPivot_clean",
+        "Counting.StoredGaussian.scale_augmentedMatrix_clean",
+        "Counting.StoredGaussian.add_augmentedMatrix_clean",
+        "Counting.StackMachine.GaussianTranscript.emit_operation_executes",
+        "Counting.GaussianBits.augmentedMatrix_encoded_bound",
+        "Counting.GaussianBits.operations_encoded_bound",
+        "Counting.GaussianBits.actual_partial_pivot_encoded_bound",
+        "Counting.StoredGaussian.solve_eq_direct",
+        "Counting.StackMachine.GaussianBank.pivotStep_executes",
+        "Counting.StackMachine.GaussianBank.generateInput_executes",
+        "Counting.StackMachine.GaussianBank.solverPhysical_polynomial",
+        "Counting.Machine.gaussian_system_polynomial_clean",
+        "Counting.Machine.rowDot_clean",
+        "Counting.GaussianNormalMatrix.normalMatrix_ofFn",
+        "Counting.GaussianNormalMatrix.normal_dot_integral",
+        "Counting.GaussianNormalMatrix.original_equation_dot_sized",
+        "Counting.Machine.gaussianNormal_clean",
+        "Counting.Machine.gaussianCheck_original_clean",
+        "Counting.GaussianSolveLinear.result_eq_solveLinear",
+        "Counting.GaussianSolveLinear.normal_integral",
+        "Counting.Machine.gaussianLinear_polynomial_clean",
+        "Counting.Machine.gaussianAnchor_polynomial_clean",
+        "Counting.GaussianLinearInputSize.physical_anchor_input_length",
+        "Counting.Machine.gaussianAnchor_physical_clean"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "vista-size-cost",
+      "title": "Vista construction and all non-solver checks have polynomial size and bit cost",
+      "kind": "unnumbered",
+      "area": "cost",
+      "status": "verified",
+      "statement": "Vista construction and all non-solver checks have polynomial size and bit cost",
+      "sources": [
+        {
+          "context_label": "sec:core-algorithm"
+        }
+      ],
+      "dependencies": [
+        "vista-dag-refinement",
+        "machine-graphs",
+        "machine-arithmetic",
+        "one-system"
+      ],
+      "lean_declarations": [
+        "Counting.Executable.nodes_size_le_depth_mul_card",
+        "Counting.Executable.incoming_entries_le",
+        "Counting.Executable.counting_horizon_size",
+        "Counting.Encoding.physical_vista_encoding_length",
+        "Counting.StackMachine.AnchorCoefficient.coefficient_executes",
+        "Counting.StackMachine.AnchorMatrix.loopBudget_polynomial",
+        "Counting.StackMachine.AnchorLeaderRow.rowBudget_polynomial",
+        "Counting.StackMachine.AnchorMatrix.finish_executes",
+        "Counting.StackMachine.AnchorMatrix.measureWidth_executes",
+        "Counting.StackMachine.AnchorMatrix.complete_executes",
+        "Counting.StackMachine.AnchorMatrix.outputWord_length",
+        "Counting.Machine.anchorMatrix_clean",
+        "Counting.Machine.anchorSolve_clean",
+        "Counting.Machine.anchorSolve_physical_clean",
+        "Counting.Machine.auditPositive_clean",
+        "Counting.Machine.auditSum_clean",
+        "Counting.Machine.auditCandidate_clean",
+        "Counting.StackMachine.AuditCandidate.failed_candidate_rejects",
+        "Counting.Encoding.array_setIfInBounds_length_le",
+        "Counting.Executable.propagateDown_encoded_polynomial",
+        "Counting.Executable.importVista_size_le",
+        "Counting.Executable.canonicalLevelCount_le_size",
+        "Counting.Executable.propagateLevels_encoded_polynomial",
+        "Counting.Executable.referenceMap_encoded_polynomial",
+        "Counting.StackMachine.AuditPropagation.preparePropagationInput_executes",
+        "Counting.StackMachine.AuditPropagation.preparePropagationRounds_setup",
+        "Counting.StackMachine.AuditPropagation.propagatePrepared_executes",
+        "Counting.StackMachine.AuditPropagation.preparedBudget_polynomial",
+        "Counting.StackMachine.AuditPropagation.propagateWeights_input_encoded_length",
+        "Counting.Machine.auditPropagation_clean",
+        "Counting.StackMachine.AuditAscend.binaryParentAt_executes",
+        "Counting.StackMachine.AuditAscend.walkCode_ascend",
+        "Counting.StackMachine.AuditAscend.walkCode_size",
+        "Counting.StackMachine.AuditAscend.ascendLoop_polynomial",
+        "Counting.StackMachine.AuditAscend.ascendLoop_ascend",
+        "Counting.Machine.auditBalance_clean",
+        "Counting.StackMachine.AuditAscend.ancestorEquals_executes",
+        "Counting.StackMachine.AuditPostSolver.auditSuffix_after_result",
+        "Counting.Machine.auditPostSolver_clean",
+        "Counting.Executable.descendantCountRange_full",
+        "Counting.Executable.auditDescendants_eq",
+        "Counting.Executable.auditSuffix_after_descendant_check",
+        "Counting.StackMachine.DagUpdate.Import.loopBudget_polynomial",
+        "Counting.StackMachine.DagUpdate.Import.importNodes_executes_polynomial",
+        "Counting.StackMachine.DagUpdate.Import.completeImport_polynomial",
+        "Counting.Machine.dagImport_clean",
+        "Counting.Machine.dagImport_exact",
+        "Counting.StackMachine.AuditDescendant.countLoop_executes",
+        "Counting.StackMachine.AuditDescendant.countTable_executes",
+        "Counting.StackMachine.AuditDescendant.readWeight_executes",
+        "Counting.StackMachine.AuditDescendant.checkAncestor_auditDescendantAt",
+        "Counting.StackMachine.AuditPrefix.opening_executes",
+        "Counting.StackMachine.AuditPrefix.countClassify_executes",
+        "Counting.StackMachine.AuditPrefix.countCompare_executes",
+        "Counting.StackMachine.DagUpdate.Key.preservingNodes_executes",
+        "Counting.Executable.mergeSort_eq_stableInsertion",
+        "Counting.Executable.canonical_ordered_indices_fold",
+        "Counting.Machine.protocolUpdate_clean",
+        "Counting.Machine.canonicalDag_clean",
+        "Counting.Machine.coreDecision_polynomial",
+        "Counting.Machine.scheduledDecision_polynomial",
+        "Counting.StackMachine.ProtocolAdvance.physical_inputWord_horizon",
+        "Counting.Machine.advance_polynomial"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "core-bit-cost",
+      "title": "The complete counting algorithm has polynomial local bit cost under the paper arc bound",
+      "kind": "unnumbered",
+      "area": "cost",
+      "status": "verified",
+      "statement": "The complete counting algorithm has polynomial local bit cost under the paper arc bound",
+      "sources": [
+        {
+          "context_label": "sec:core-algorithm"
+        },
+        {
+          "context_label": "sec:sharp-bounds"
+        }
+      ],
+      "dependencies": [
+        "binary-label-bound",
+        "gaussian-bit-cost",
+        "vista-size-cost",
+        "one-system"
+      ],
+      "lean_declarations": [
+        "Counting.Machine.initializeState_clean",
+        "Counting.Machine.initializeState_population_bound",
+        "Counting.Machine.advance_polynomial",
+        "Counting.Machine.CountingRuntime.local_runtime_polynomial",
+        "Counting.Machine.CountingRuntime.local_runtime_under_polynomial_arc_bound"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "all-leader-test",
+      "title": "The round-ell no-nonleader test succeeds exactly when n=ell",
+      "kind": "unnumbered",
+      "area": "algorithm",
+      "status": "verified",
+      "statement": "The round-ell no-nonleader test succeeds exactly when n=ell",
+      "sources": [
+        {
+          "context_label": "sec:sharp-bounds"
+        },
+        {
+          "context_label": "app:optimizations"
+        }
+      ],
+      "dependencies": [
+        "h2-leaders",
+        "causal-visibility",
+        "model-network"
+      ],
+      "lean_declarations": [
+        "Counting.all_leaders_test_iff"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "short-credit-rigidity",
+      "title": "Equality in the shorter credit audit forces singleton final fibers and correct anchor counts",
+      "kind": "unnumbered",
+      "area": "algorithm",
+      "status": "verified",
+      "statement": "Equality in the shorter credit audit forces singleton final fibers and correct anchor counts",
+      "sources": [
+        {
+          "context_label": "app:optimizations"
+        }
+      ],
+      "dependencies": [
+        "credit-loss",
+        "suffix-credit",
+        "nonflat-growth",
+        "tail-exposure",
+        "candidate-conservation"
+      ],
+      "lean_declarations": [
+        "Counting.ShortAudit.Checks.false_credit_tight",
+        "Counting.ShortAudit.Checks.false_anchor_actual_eq_descendants",
+        "Counting.ShortAudit.Checks.false_final_singleton",
+        "Counting.ShortAudit.Checks.false_anchor_rigidity"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "short-anchor-last",
+      "title": "A false passing shorter audit must have h=m-1",
+      "kind": "unnumbered",
+      "area": "algorithm",
+      "status": "verified",
+      "statement": "A false passing shorter audit must have h=m-1",
+      "sources": [
+        {
+          "context_label": "app:optimizations"
+        }
+      ],
+      "dependencies": [
+        "short-credit-rigidity",
+        "model-network"
+      ],
+      "lean_declarations": [
+        "Counting.ShortAudit.agents_strict_refinement",
+        "Counting.ShortAudit.Checks.false_anchor_is_final"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "short-flow-closure",
+      "title": "Backward candidate counts count intersections with S; full fibers in S send only into S",
+      "kind": "unnumbered",
+      "area": "algorithm",
+      "status": "verified",
+      "statement": "Backward candidate counts count intersections with S; full fibers in S send only into S",
+      "sources": [
+        {
+          "context_label": "app:optimizations"
+        }
+      ],
+      "dependencies": [
+        "short-anchor-last",
+        "h3-flow",
+        "candidate-conservation"
+      ],
+      "lean_declarations": [
+        "Counting.ShortAudit.Checks.false_candidate_intersections",
+        "Counting.ShortAudit.noEscape_of_restricted_flow",
+        "Counting.ShortAudit.Checks.false_noEscape"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "short-accept-true",
+      "title": "The shorter audit accepts the true order n>ell at round 2n-2",
+      "kind": "unnumbered",
+      "area": "algorithm",
+      "status": "verified",
+      "statement": "The shorter audit accepts the true order n>ell at round 2n-2",
+      "sources": [
+        {
+          "context_label": "app:optimizations"
+        },
+        {
+          "context_label": "sec:sharp-bounds"
+        }
+      ],
+      "dependencies": [
+        "h4-delay",
+        "flat-level",
+        "nonflat-growth",
+        "candidate-test"
+      ],
+      "lean_declarations": [
+        "Counting.Executable.short_audit_accept_true"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "optimized-simultaneous",
+      "title": "Combining all-leader and core/short tests gives the stated simultaneous halting times",
+      "kind": "unnumbered",
+      "area": "algorithm",
+      "status": "verified",
+      "statement": "Combining all-leader and core/short tests gives the stated simultaneous halting times",
+      "sources": [
+        {
+          "context_label": "app:optimizations"
+        }
+      ],
+      "dependencies": [
+        "all-leader-test",
+        "core-reject-false",
+        "core-accept-true",
+        "short-audit",
+        "model-protocol",
+        "vista-update",
+        "candidate-test"
+      ],
+      "lean_declarations": [
+        "Counting.Executable.executable_simultaneous",
+        "Counting.Executable.executable_solves_counting",
+        "Counting.Executable.executable_halted_silent_forever",
+        "Counting.Executable.binary_network_before",
+        "Counting.Executable.binary_network_at_stop",
+        "Counting.Executable.binary_network_step_total",
+        "Counting.Executable.binary_network_silent_after"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "lower-all-leader-path",
+      "title": "The two all-leader-path instances have matching endpoint histories through n-1",
+      "kind": "unnumbered",
+      "area": "lower_bounds",
+      "status": "verified",
+      "statement": "For n leaders versus n leaders plus one terminal nonleader, bidirected paths are strongly connected and endpoint histories agree through round n-1, including n=1.",
+      "sources": [
+        {
+          "context_label": "app:termination-lower-bounds"
+        },
+        {
+          "context_label": "sec:sharp-bounds"
+        }
+      ],
+      "dependencies": [
+        "same-history-same-state",
+        "model-network",
+        "lower-universal"
+      ],
+      "lean_declarations": [
+        "Counting.LowerAllLeaders.endpoint_common_prefix",
+        "Counting.LowerAllLeaders.all_leaders_lower_bound_for",
+        "Counting.LowerAllLeaders.endpoint_halt_round_ge_order_for"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "lower-one-leader-path",
+      "title": "Looped endpoint paths of orders n and n+1 match through 2n-2",
+      "kind": "unnumbered",
+      "area": "lower_bounds",
+      "status": "verified",
+      "statement": "For n>=2, the unique leaders of P_n^circle and P_(n+1)^circle have identical histories through 2n-2, including current late outdegrees.",
+      "sources": [
+        {
+          "context_label": "app:termination-lower-bounds"
+        },
+        {
+          "context_label": "sec:sharp-bounds"
+        }
+      ],
+      "dependencies": [
+        "same-history-same-state",
+        "model-network",
+        "lower-universal"
+      ],
+      "lean_declarations": [
+        "Counting.LowerOneLeader.endpoint_common_prefix",
+        "Counting.LowerOneLeader.one_leader_lower_bound_for",
+        "Counting.LowerOneLeader.endpoint_halt_round_ge_two_mul_sub_one_for"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "lower-phase-one",
+      "title": "First several-leader phase preserves the specified leader and nonleader matches",
+      "kind": "unnumbered",
+      "area": "lower_bounds",
+      "status": "verified",
+      "statement": "First several-leader phase preserves the specified leader and nonleader matches",
+      "sources": [
+        {
+          "context_label": "app:termination-lower-bounds"
+        },
+        {
+          "context_label": "sec:sharp-bounds"
+        }
+      ],
+      "dependencies": [
+        "two-center",
+        "same-history-same-state",
+        "model-network"
+      ],
+      "lean_declarations": [
+        "Counting.LowerSeveralPhases.first_step_preserves",
+        "Counting.LowerSeveralPhases.first_phase_histories",
+        "Counting.LowerSeveral.end_first_matched"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "lower-phase-two",
+      "title": "Second several-leader phase preserves matches until each selected center is retired",
+      "kind": "unnumbered",
+      "area": "lower_bounds",
+      "status": "verified",
+      "statement": "Second several-leader phase preserves matches until each selected center is retired",
+      "sources": [
+        {
+          "context_label": "app:termination-lower-bounds"
+        },
+        {
+          "context_label": "sec:sharp-bounds"
+        }
+      ],
+      "dependencies": [
+        "lower-phase-one",
+        "two-center",
+        "same-history-same-state"
+      ],
+      "lean_declarations": [
+        "Counting.LowerSeveralPhases.first_to_second",
+        "Counting.LowerSeveralPhases.second_step_preserves",
+        "Counting.LowerSeveralPhases.second_phase_histories",
+        "Counting.LowerSeveral.end_second_matched"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "lower-initial-relays",
+      "title": "g initial relay rounds preserve corresponding relay and core matches",
+      "kind": "unnumbered",
+      "area": "lower_bounds",
+      "status": "verified",
+      "statement": "g initial relay rounds preserve corresponding relay and core matches",
+      "sources": [
+        {
+          "context_label": "app:termination-lower-bounds"
+        },
+        {
+          "context_label": "sec:sharp-bounds"
+        }
+      ],
+      "dependencies": [
+        "model-network",
+        "same-history-same-state"
+      ],
+      "lean_declarations": [
+        "Counting.LowerSeveralInitial.initialSmall_valid",
+        "Counting.LowerSeveralInitial.initialLarge_valid",
+        "Counting.LowerSeveralInitial.initial_step_preserves",
+        "Counting.LowerSeveralInitial.initial_invariant_histories",
+        "Counting.LowerSeveralInitial.initial_histories"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "lower-middle-relays",
+      "title": "Substituting the relay fanout preserves outdegrees, connectivity and both phase invariants",
+      "kind": "unnumbered",
+      "area": "lower_bounds",
+      "status": "verified",
+      "statement": "Substituting the relay fanout preserves outdegrees, connectivity and both phase invariants",
+      "sources": [
+        {
+          "context_label": "app:termination-lower-bounds"
+        },
+        {
+          "context_label": "sec:sharp-bounds"
+        }
+      ],
+      "dependencies": [
+        "lower-initial-relays",
+        "lower-phase-one",
+        "lower-phase-two"
+      ],
+      "lean_declarations": [
+        "Counting.LowerSeveralRelay.core_outdegree",
+        "Counting.LowerSeveralRelay.relay_outdegree",
+        "Counting.LowerSeveralRelay.stronglyConnected",
+        "Counting.LowerSeveralPhases.first_step_preserves",
+        "Counting.LowerSeveralPhases.second_step_preserves"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "lower-final-cycle",
+      "title": "The fixed final cycles preserve observer histories for exactly g+1 final rounds",
+      "kind": "unnumbered",
+      "area": "lower_bounds",
+      "status": "verified",
+      "statement": "Observers match through g+1 final rounds and first differ in final round g+2; the first discrepancy has to traverse y,z_1,...,z_g,x.",
+      "sources": [
+        {
+          "context_label": "app:termination-lower-bounds"
+        },
+        {
+          "context_label": "sec:sharp-bounds"
+        }
+      ],
+      "dependencies": [
+        "lower-middle-relays",
+        "same-history-same-state",
+        "model-network"
+      ],
+      "lean_declarations": [
+        "Counting.LowerSeveralFinal.final_histories",
+        "Counting.LowerSeveralExact.first_tail_difference",
+        "Counting.LowerSeveralExact.tail_difference",
+        "Counting.LowerSeveralExact.endpoint_first_difference"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "lower-structural-bounds",
+      "title": "Several-leader construction is loopless with multiplicities <=ell and outdegrees <=ell^2",
+      "kind": "unnumbered",
+      "area": "lower_bounds",
+      "status": "verified",
+      "statement": "Several-leader construction is loopless with multiplicities <=ell and outdegrees <=ell^2",
+      "sources": [
+        {
+          "context_label": "app:termination-lower-bounds"
+        },
+        {
+          "context_label": "sec:sharp-bounds"
+        }
+      ],
+      "dependencies": [
+        "two-center",
+        "lower-middle-relays",
+        "lower-initial-relays",
+        "lower-final-cycle"
+      ],
+      "lean_declarations": [
+        "Counting.LowerSeveral.small_valid",
+        "Counting.LowerSeveral.large_valid",
+        "Counting.LowerSeveral.small_admissible",
+        "Counting.LowerSeveral.large_admissible",
+        "Counting.LowerSeveral.small_order",
+        "Counting.LowerSeveral.large_order"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "lower-universal",
+      "title": "Equal full-information vistas in different orders prevent termination for any correct protocol",
+      "kind": "unnumbered",
+      "area": "lower_bounds",
+      "status": "verified",
+      "statement": "Equal full-information vistas in different orders prevent termination for any correct protocol",
+      "sources": [
+        {
+          "context_label": "app:termination-lower-bounds"
+        },
+        {
+          "context_label": "sec:sharp-bounds"
+        }
+      ],
+      "dependencies": [
+        "same-history-same-state",
+        "model-protocol"
+      ],
+      "lean_declarations": [
+        "Counting.universal_lower_bound_for",
+        "Counting.Protocol.solvesCounting_iff_forall_leaders"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "lower-combined",
+      "title": "The three constructions imply the three universal lower bounds",
+      "kind": "unnumbered",
+      "area": "lower_bounds",
+      "status": "verified",
+      "statement": "The three constructions imply the three universal lower bounds",
+      "sources": [
+        {
+          "context_label": "app:termination-lower-bounds"
+        },
+        {
+          "context_label": "sec:sharp-bounds"
+        },
+        {
+          "context_label": "thm:exact-termination"
+        }
+      ],
+      "dependencies": [
+        "lower-universal",
+        "lower-all-leader-path",
+        "lower-one-leader-path",
+        "lower-phase-one",
+        "lower-phase-two",
+        "lower-initial-relays",
+        "lower-middle-relays",
+        "lower-final-cycle",
+        "lower-structural-bounds"
+      ],
+      "lean_declarations": [
+        "Counting.LowerCombined.lower_bound",
+        "Counting.LowerCombined.HardExecution.before",
+        "Counting.LowerSeveral.several_leaders_lower_bound"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "spectrum-knowledge",
+      "title": "On realizable vistas, knowing the order is equivalent to a singleton spectrum",
+      "kind": "unnumbered",
+      "area": "realizability",
+      "status": "verified",
+      "statement": "Every realization contributes its order; a realizable vista determines n iff all realizations have that same order. Arbitrary malformed encodings receive empty spectrum.",
+      "sources": [
+        {
+          "context_label": "sec:network-wise-complexity"
+        },
+        {
+          "context_label": "app:conp-membership"
+        }
+      ],
+      "dependencies": [
+        "vista-isomorphism",
+        "same-history-same-state"
+      ],
+      "lean_declarations": [
+        "Counting.Realizability.knowsOrder_iff_singleton",
+        "Counting.Realizability.knowsOrder_iff_atMostOne",
+        "Counting.Realizability.encodedSpectrum_invalid",
+        "Counting.Realizability.encodedSpectrum_unique_iff_knows"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "vista-syntax",
+      "title": "Syntactic vista validation is polynomial-time decidable",
+      "kind": "implementation",
+      "area": "realizability",
+      "status": "verified",
+      "statement": "The binary vista validator checks initial status uniqueness, layered parents, distinct sibling signatures, one bottom and exact backward closure.",
+      "sources": [
+        {
+          "context_label": "app:conp-membership"
+        }
+      ],
+      "dependencies": [],
+      "lean_declarations": [
+        "Counting.Executable.nodeValid_iff_syntax",
+        "Counting.Executable.valid_iff_syntax",
+        "Counting.Executable.valid_initial_unique",
+        "Counting.Executable.valid_siblings_unique",
+        "Counting.Executable.valid_bottom_unique",
+        "Counting.StackMachine.DagValidation.validation_computesCleanIn",
+        "Counting.StackMachine.DagValidation.validWord_true_iff_syntax",
+        "Counting.StackMachine.DagValidation.syntaxLanguage_in_P"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "certificate-nesting",
+      "title": "Selected-count inequalities admit nested selected agent sets with prescribed types",
+      "kind": "implementation",
+      "area": "realizability",
+      "status": "verified",
+      "statement": "Selected-count inequalities admit nested selected agent sets with prescribed types",
+      "sources": [],
+      "dependencies": [
+        "history-fibers"
+      ],
+      "lean_declarations": [
+        "Counting.CountAllocation.exists_initial_allocation",
+        "Counting.CountAllocation.exists_refinement",
+        "Counting.CountAllocation.selected_nested",
+        "Counting.CountAllocation.group_card",
+        "Counting.CountAllocation.group_subset_parent",
+        "Counting.CountAllocation.allocation_label",
+        "Counting.Realizability.Certificate.selected_nested",
+        "Counting.Realizability.Certificate.group_card",
+        "Counting.Realizability.Certificate.group_label"
+      ],
+      "source_role": "supporting_formalization",
+      "supporting_role": "Allocation lemma for the selected-count certificate proof of fixed-order realizability."
+    },
+    {
+      "id": "certificate-test",
+      "title": "Executable fixed-order verifier implements count, balance and auxiliary-connectivity tests",
+      "kind": "implementation",
+      "area": "realizability",
+      "status": "verified",
+      "statement": "The selected-count verifier rejects invalid orders, labels and counts; it includes the outside-agent node exactly when outside agents exist, and requires auxiliary connectivity except at order one.",
+      "sources": [],
+      "dependencies": [
+        "vista-dag-refinement",
+        "certificate-necessary",
+        "certificate-sufficient",
+        "certificate-singleton"
+      ],
+      "lean_declarations": [
+        "Counting.RealizabilityVerifier.verify_iff_certificate",
+        "Counting.RealizabilityVerifier.verify_sound",
+        "Counting.RealizabilityVerifier.exists_verified_iff"
+      ],
+      "source_role": "supporting_formalization",
+      "supporting_role": "Executable selected-count certificate verifier used to prove fixed-order NP membership and recognition coNP membership."
+    },
+    {
+      "id": "certificate-necessary",
+      "title": "Causal support of a realization supplies a passing count certificate",
+      "kind": "implementation",
+      "area": "realizability",
+      "status": "verified",
+      "statement": "Causal support of a realization supplies a passing count certificate",
+      "sources": [],
+      "dependencies": [
+        "causal-visibility",
+        "causal-expansion",
+        "h3-flow",
+        "vista-isomorphism"
+      ],
+      "lean_declarations": [
+        "Counting.Realizability.certificate_of_actual",
+        "Counting.Realizability.exists_certificate_of_actual",
+        "Counting.Realizability.selected_connected"
+      ],
+      "source_role": "supporting_formalization",
+      "supporting_role": "Necessity direction of the selected-count certificate characterization of fixed-order realizability."
+    },
+    {
+      "id": "certificate-auxiliary-balance",
+      "title": "The expanded physical graph balances every auxiliary vertex",
+      "kind": "implementation",
+      "area": "realizability",
+      "status": "verified",
+      "statement": "The expanded physical graph balances every auxiliary vertex",
+      "sources": [],
+      "dependencies": [
+        "certificate-nesting"
+      ],
+      "lean_declarations": [
+        "Counting.Realizability.Certificate.round_balanced",
+        "Counting.RealizabilityConstruction.RoundData.expanded_balanced",
+        "Counting.RealizabilityConstruction.RoundData.expanded_tails_typed"
+      ],
+      "source_role": "supporting_formalization",
+      "supporting_role": "Auxiliary-vertex balance invariant in the physical construction from a selected-count certificate."
+    },
+    {
+      "id": "certificate-auxiliary-connected",
+      "title": "Strong connectivity of the type graph lifts to the expanded physical graph",
+      "kind": "implementation",
+      "area": "realizability",
+      "status": "verified",
+      "statement": "Strong connectivity of the type graph lifts to the expanded physical graph",
+      "sources": [],
+      "dependencies": [
+        "certificate-auxiliary-balance",
+        "model-network"
+      ],
+      "lean_declarations": [
+        "Counting.Realizability.Certificate.typeArc_iff",
+        "Counting.Realizability.Certificate.type_connected",
+        "Counting.Realizability.Certificate.expanded_connected"
+      ],
+      "source_role": "supporting_formalization",
+      "supporting_role": "Connectivity lifting lemma in the physical construction from a selected-count certificate."
+    },
+    {
+      "id": "certificate-elimination",
+      "title": "Eliminating auxiliary vertices preserves selected degrees, receipts and causal exclusion",
+      "kind": "implementation",
+      "area": "realizability",
+      "status": "verified",
+      "statement": "Eliminating auxiliary vertices preserves selected degrees, receipts and causal exclusion",
+      "sources": [],
+      "dependencies": [
+        "balanced-vertex-strong",
+        "certificate-auxiliary-connected"
+      ],
+      "lean_declarations": [
+        "Counting.RealizabilityConstruction.eliminate_colored_incoming",
+        "Counting.RealizabilityConstruction.eliminate_many_colored",
+        "Counting.RealizabilityConstruction.eliminate_independent_auxiliaries",
+        "Counting.RealizabilityConstruction.RoundData.physical_round_exists"
+      ],
+      "source_role": "supporting_formalization",
+      "supporting_role": "Degree, receipt and causal-support preservation in the auxiliary-vertex construction of a realization."
+    },
+    {
+      "id": "certificate-sufficient",
+      "title": "Passing counts construct a realization with exactly the requested observer vista",
+      "kind": "implementation",
+      "area": "realizability",
+      "status": "verified",
+      "statement": "Passing counts construct a realization with exactly the requested observer vista",
+      "sources": [],
+      "dependencies": [
+        "certificate-nesting",
+        "certificate-elimination",
+        "certificate-singleton",
+        "vista-isomorphism"
+      ],
+      "lean_declarations": [
+        "Counting.Realizability.Certificate.realization_of_many",
+        "Counting.Realizability.Certificate.realizable",
+        "Counting.Realizability.fixed_order_iff_certificate",
+        "Counting.RealizabilityConstruction.selected_histories"
+      ],
+      "source_role": "supporting_formalization",
+      "supporting_role": "Sufficiency direction of the selected-count certificate characterization of fixed-order realizability."
+    },
+    {
+      "id": "certificate-singleton",
+      "title": "For N=1 the certificate is realized by the indicated number of self-loops, including zero",
+      "kind": "implementation",
+      "area": "realizability",
+      "status": "verified",
+      "statement": "For N=1 the certificate is realized by the indicated number of self-loops, including zero",
+      "sources": [],
+      "dependencies": [
+        "certificate-nesting",
+        "vista-isomorphism"
+      ],
+      "lean_declarations": [
+        "Counting.Realizability.Certificate.singleton_leaders",
+        "Counting.Realizability.Certificate.singleton_messages",
+        "Counting.Realizability.Certificate.singleton_histories",
+        "Counting.Realizability.Certificate.singleton_realization"
+      ],
+      "source_role": "supporting_formalization",
+      "supporting_role": "Singleton realization case of the selected-count certificate characterization."
+    },
+    {
+      "id": "certificate-size-cost",
+      "title": "Count certificates have O(nu log(N+1)) bits and polynomial verification time",
+      "kind": "implementation",
+      "area": "cost",
+      "status": "verified",
+      "statement": "Count certificates have O(nu log(N+1)) bits and polynomial verification time",
+      "sources": [],
+      "dependencies": [
+        "certificate-test",
+        "certificate-nesting",
+        "vista-syntax",
+        "machine-arithmetic"
+      ],
+      "lean_declarations": [
+        "Counting.RealizabilityVerifier.accepted_payload_bound",
+        "Counting.RealizabilityVerifier.exists_bounded_verified",
+        "Counting.RealizabilityVerifier.roundVertex_card_bound",
+        "Counting.RealizabilityVerifier.valid_depth_lt_size",
+        "Counting.Encoding.accepted_counts_encoded_bound",
+        "Counting.Encoding.exists_encoded_bounded_certificate",
+        "Counting.Encoding.accepted_counts_encoded_linear",
+        "Counting.StackMachine.RealizabilityCheck.countsShape_executes",
+        "Counting.StackMachine.RealizabilityCheck.countsShapeCheck_verifier_component",
+        "Counting.RealizabilityVerifier.initialCount_scan",
+        "Counting.RealizabilityVerifier.childCount_scan",
+        "Counting.RealizabilityVerifier.supply_scan",
+        "Counting.RealizabilityVerifier.demand_scan",
+        "Counting.RealizabilityVerifier.hidden_scan",
+        "Counting.StackMachine.RealizabilityCheck.countOneGuard_bottom_executes",
+        "Counting.RealizabilityVerifier.CompactGraph.check_eq",
+        "Counting.RealizabilityVerifier.CompactGraph.roundVertex_card_sharp",
+        "Counting.StackMachine.RealizabilityCheck.initialCheck_executes",
+        "Counting.StackMachine.RealizabilityCheck.initialScanCheck_verifier_component",
+        "Counting.StackMachine.RealizabilityCheck.childPrefix_executes",
+        "Counting.StackMachine.RealizabilityCheck.childRangeSum_vista",
+        "Counting.StackMachine.RealizabilityCheck.weightedAccumulate_executes",
+        "Counting.RealizabilityVerifier.countFrom_sum",
+        "Counting.RealizabilityVerifier.weighted_countFrom_sum",
+        "Counting.RealizabilityVerifier.BitGraph.iterate_mem",
+        "Counting.RealizabilityVerifier.BitGraph.check_eq",
+        "Counting.RealizabilityVerifier.CompactGraph.bitCheck_eq",
+        "Counting.StackMachine.RealizabilityCheck.roundBoundsGuard_executes",
+        "Counting.StackMachine.RealizabilityCheck.roundBoundsCheck_verifier_component",
+        "Counting.StackMachine.RealizabilityCheck.levelPrefix_executes",
+        "Counting.StackMachine.RealizabilityCheck.levelRangeSum_hidden",
+        "Counting.StackMachine.RealizabilityCheck.supplyPrefix_executes",
+        "Counting.StackMachine.RealizabilityCheck.supplyRangeSum_vista",
+        "Counting.StackMachine.RealizabilityCheck.supplyRangeSum_size",
+        "Counting.StackMachine.RealizabilityCheck.demandRangeSum_size",
+        "Counting.StackMachine.RealizabilityCheck.levelRangeSum_size",
+        "Counting.StackMachine.RealizabilityCheck.preservedPass_executes",
+        "Counting.StackMachine.RealizabilityCheck.demandPrefix_executes",
+        "Counting.StackMachine.RealizabilityCheck.demandRangeSum_vista",
+        "Counting.StackMachine.RealizabilityCheck.bitLookup_executes",
+        "Counting.StackMachine.RealizabilityCheck.reachCheck_executes",
+        "Counting.StackMachine.RealizabilityCheck.reachCheck_compact",
+        "Counting.RealizabilityVerifier.CompactGraph.fieldsFromBits_tabulated",
+        "Counting.RealizabilityVerifier.CompactGraph.tabulated_check_eq",
+        "Counting.StackMachine.RealizabilityCheck.maskSlots_executes",
+        "Counting.StackMachine.RealizabilityCheck.maskSlots_old",
+        "Counting.StackMachine.RealizabilityCheck.maskSlots_new",
+        "Counting.StackMachine.RealizabilityCheck.maskSlots_degree",
+        "Counting.StackMachine.RealizabilityCheck.incomingPositive_executes",
+        "Counting.StackMachine.RealizabilityCheck.massFlags_executes",
+        "Counting.StackMachine.RealizabilityCheck.massFlags_verifier_component",
+        "Counting.StackMachine.RealizabilityCheck.arcTableValues_fields",
+        "Counting.StackMachine.RealizabilityCheck.activeVector_executes",
+        "Counting.StackMachine.RealizabilityCheck.nodeIncidence_executes",
+        "Counting.StackMachine.RealizabilityCheck.incomingMatrixValues_actual",
+        "Counting.StackMachine.RealizabilityCheck.parentMatrixValues_actual",
+        "Counting.StackMachine.RealizabilityCheck.incidenceMatrix_actual",
+        "Counting.StackMachine.RealizabilityCheck.graphCheck_actual",
+        "Counting.StackMachine.RealizabilityCheck.massCalculate_actual",
+        "Counting.StackMachine.RealizabilityCheck.leavingRangeValues_actual",
+        "Counting.StackMachine.RealizabilityCheck.deficitRangeValues_actual",
+        "Counting.StackMachine.RealizabilityCheck.pointRangeCheck_verifier_component",
+        "Counting.StackMachine.RealizabilityCheck.maskSlots_old_values",
+        "Counting.StackMachine.RealizabilityCheck.maskSlots_new_values",
+        "Counting.StackMachine.RealizabilityCheck.maskSlots_degree_values",
+        "Counting.StackMachine.RealizabilityCheck.maskSlots_outside_values",
+        "Counting.StackMachine.RealizabilityCheck.checkedVerifier_eq",
+        "Counting.StackMachine.RealizabilityCheck.roundComputedTables_actual",
+        "Counting.StackMachine.RealizabilityCheck.roundCheck_actual",
+        "Counting.StackMachine.RealizabilityCheck.roundScan_all",
+        "Counting.StackMachine.RealizabilityCheck.allRoundsSize_input_bound",
+        "Counting.StackMachine.RealizabilityCheck.certificateMachine_computes",
+        "Counting.StackMachine.RealizabilityCheck.certificateLanguage_in_P"
+      ],
+      "source_role": "supporting_formalization",
+      "supporting_role": "Witness-size and verification-time bounds for the selected-count certificate implementation."
+    },
+    {
+      "id": "causal-support-bound",
+      "title": "Every realization has initial causal support at most K=(1+nu M)^t",
+      "kind": "unnumbered",
+      "area": "realizability",
+      "status": "verified",
+      "statement": "Every realization has initial causal support at most K=(1+nu M)^t",
+      "sources": [
+        {
+          "context_label": "app:conp-membership"
+        },
+        {
+          "context_label": "sec:conp-membership"
+        }
+      ],
+      "dependencies": [
+        "causal-visibility",
+        "causal-expansion"
+      ],
+      "lean_declarations": [
+        "Counting.SupportBound.initial_support_bound_of_vista_labels",
+        "Counting.SupportBound.all_supports_card_le_initial_bound"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "causal-bound-bitlength",
+      "title": "K and K+ell+2 have polynomial bit length in the explicit vista input",
+      "kind": "unnumbered",
+      "area": "cost",
+      "status": "verified",
+      "statement": "K and K+ell+2 have polynomial bit length in the explicit vista input",
+      "sources": [
+        {
+          "context_label": "lem:conp-bounded-orders"
+        },
+        {
+          "context_label": "app:conp-membership"
+        }
+      ],
+      "dependencies": [
+        "causal-support-bound",
+        "vista-dag-refinement",
+        "certificate-test"
+      ],
+      "lean_declarations": [
+        "Counting.Encoding.vistaInput_parameters",
+        "Counting.Encoding.supportBound_bits_encoded",
+        "Counting.Encoding.compatible_threshold_bits_encoded"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "open-certificate-invariance",
+      "title": "An open realization certificate passes at every order N>=K+ell+1",
+      "kind": "implementation",
+      "area": "realizability",
+      "status": "verified",
+      "statement": "An open realization certificate passes at every order N>=K+ell+1",
+      "sources": [],
+      "dependencies": [
+        "certificate-necessary",
+        "certificate-sufficient",
+        "causal-support-bound"
+      ],
+      "lean_declarations": [
+        "Counting.Realizability.Certificate.at_support_threshold",
+        "Counting.Realizability.Certificate.at_open_order",
+        "Counting.Realizability.selected_initial_le_bound"
+      ],
+      "source_role": "supporting_formalization",
+      "supporting_role": "Order-extension lemma supporting the formal pumping and eventual-compatibility corollary."
+    },
+    {
+      "id": "pumping-from-order",
+      "title": "An open realization of order N realizes every order N+h",
+      "kind": "unnumbered",
+      "area": "realizability",
+      "status": "verified",
+      "statement": "An open realization of order N realizes every order N+h",
+      "sources": [
+        {
+          "context_label": "app:conp-membership"
+        }
+      ],
+      "dependencies": [
+        "certificate-necessary",
+        "certificate-sufficient"
+      ],
+      "lean_declarations": [
+        "Counting.Realizability.Certificate.pump",
+        "Counting.Realizability.pumping_of_open_realization"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "finite-or-cofinite",
+      "title": "Every order spectrum is finite or cofinite with the stated threshold bound",
+      "kind": "unnumbered",
+      "area": "realizability",
+      "status": "verified",
+      "statement": "Every order spectrum is finite or cofinite with the stated threshold bound",
+      "sources": [
+        {
+          "context_label": "app:conp-membership"
+        }
+      ],
+      "dependencies": [
+        "pumping-from-order",
+        "causal-support-bound",
+        "certificate-sufficient"
+      ],
+      "lean_declarations": [
+        "Counting.Realizability.bounded_or_eventual",
+        "Counting.Realizability.spectrum_finite_or_cofinite",
+        "Counting.Realizability.eventual_of_open_realization"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "explicit-network-vistas",
+      "title": "Explicit binary-multiplicity networks yield all final vistas in polynomial time",
+      "kind": "unnumbered",
+      "area": "representation",
+      "status": "verified",
+      "statement": "Explicit binary-multiplicity networks yield all final vistas in polynomial time",
+      "sources": [
+        {
+          "context_label": "app:conp-membership"
+        }
+      ],
+      "dependencies": [
+        "vista-dag-refinement",
+        "machine-graphs",
+        "machine-arithmetic"
+      ],
+      "lean_declarations": [
+        "Counting.Encoding.networkInput_roundtrip",
+        "Counting.Encoding.networkValid_admissible",
+        "Counting.Encoding.decodeNetwork_iff",
+        "Counting.Encoding.inputVistaArrayRun_eq",
+        "Counting.Encoding.inputVistas_correct",
+        "Counting.Encoding.inputVistas_encoding_length",
+        "Counting.StackMachine.NetworkRecognition.networkValidationMachine_concrete",
+        "Counting.StackMachine.NetworkRecognition.validNetworkWord_eq_decodeNetwork",
+        "Counting.StackMachine.NetworkRecognition.admissibleNetworkLanguage_in_P",
+        "Counting.StackMachine.NetworkVista.initialPrefix_network",
+        "Counting.StackMachine.NetworkVista.Reader.preservingRead_executes_polynomial",
+        "Counting.StackMachine.NetworkVista.rowTotal_matrix",
+        "Counting.StackMachine.NetworkVista.receivedPairs_allAgents",
+        "Counting.Encoding.rawInputVistas_correct",
+        "Counting.Encoding.rawInputVistas_encoding_length",
+        "Counting.StackMachine.NetworkVista.Run.complete_executes",
+        "Counting.Machine.networkVistaRaw_clean"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "network-complement-certificate",
+      "title": "A no-instance of SomeAgentKnows has one bounded alternate-order certificate per agent",
+      "kind": "unnumbered",
+      "area": "complexity",
+      "status": "verified",
+      "statement": "A no-instance of SomeAgentKnows has one bounded alternate-order certificate per agent",
+      "sources": [
+        {
+          "context_label": "app:conp-membership"
+        }
+      ],
+      "dependencies": [
+        "bounded-orders",
+        "certificate-test",
+        "vista-dag-refinement",
+        "spectrum-knowledge",
+        "causal-bound-bitlength"
+      ],
+      "lean_declarations": [
+        "Counting.Realizability.not_someAgentKnows_iff_invalid_or_certificates",
+        "Counting.Realizability.network_complement_polynomial_witnesses",
+        "Counting.Realizability.network_complement_payload_polynomial",
+        "Counting.Encoding.verifyNetworkWitness_complete",
+        "Counting.Encoding.binaryNetwork_complement_iff",
+        "Counting.Encoding.network_alternate_encoded_witnesses",
+        "Counting.Encoding.realizable_decode_iff",
+        "Counting.Encoding.agentVista_realizable",
+        "Counting.Encoding.verifyAlternateNetworkWitness_iff",
+        "Counting.Encoding.verifyAlternateNetworkWitness_sound",
+        "Counting.Encoding.verifyAlternateNetworkWitness_complete",
+        "Counting.Encoding.binaryAlternateNetworkVerifier_sound",
+        "Counting.Encoding.binaryNetwork_alternate_complement_iff"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "x3c-normalization",
+      "title": "Deleting duplicate triples and padding to q>=2 preserves exact cover in polynomial time",
+      "kind": "unnumbered",
+      "area": "hardness",
+      "status": "verified",
+      "statement": "Deleting duplicate triples and padding to q>=2 preserves exact cover in polynomial time",
+      "sources": [
+        {
+          "context_label": "app:conp-hardness"
+        }
+      ],
+      "dependencies": [
+        "machine-arithmetic"
+      ],
+      "lean_declarations": [
+        "Counting.X3C.RawInstance.normalize_exactCover_iff",
+        "Counting.X3C.RawInstance.normalize_parameters",
+        "Counting.X3CEncoding.deduplicate_rawRows",
+        "Counting.X3CEncoding.normalizedInput_toRaw",
+        "Counting.X3CEncoding.normalizedInput_exactCover",
+        "Counting.External.CoverNormalization.preservingMembership_executes",
+        "Counting.External.CoverNormalization.previousMembership_executes",
+        "Counting.External.CoverNormalization.freshRows_firstIndices",
+        "Counting.External.CoverNormalization.dedupRows_executes",
+        "Counting.External.CoverNormalization.emitPadding_executes",
+        "Counting.External.CoverNormalization.normalizedRaw_encoded",
+        "Counting.External.CoverNormalization.normalizePrefix_polynomial",
+        "Counting.External.CoverNormalization.generator_executes",
+        "Counting.External.CoverNormalization.generatorCost_polynomial",
+        "Counting.External.CoverNormalization.normalizeWord_yes_iff",
+        "Counting.External.CoverNormalization.normalizeWord_parameters",
+        "Counting.External.CoverNormalization.machineGenerator_computesCleanIn",
+        "Counting.External.CoverNormalization.normalization_complete"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "x3c-coefficients",
+      "title": "Exact-cover coefficients have the positivity, distinctness and size inequalities used in the reduction",
+      "kind": "unnumbered",
+      "area": "hardness",
+      "status": "verified",
+      "statement": "Exact-cover coefficients have the positivity, distinctness and size inequalities used in the reduction",
+      "sources": [
+        {
+          "context_label": "app:conp-hardness"
+        }
+      ],
+      "dependencies": [],
+      "lean_declarations": [
+        "Counting.X3C.ones_lt_high",
+        "Counting.X3C.ones_positive",
+        "Counting.X3C.target_lt",
+        "Counting.X3C.Instance.coefficient_gt_high",
+        "Counting.X3C.Instance.coefficient_injective",
+        "Counting.X3C.Instance.triple_coefficient_lt_target",
+        "Counting.X3C.Instance.coefficient_size"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "x3c-no-carries",
+      "title": "Nonbaseline solutions have at most q summands; base-B digits force exact cover",
+      "kind": "unnumbered",
+      "area": "hardness",
+      "status": "verified",
+      "statement": "Nonbaseline solutions have at most q summands; base-B digits force exact cover",
+      "sources": [
+        {
+          "context_label": "app:conp-hardness"
+        }
+      ],
+      "dependencies": [
+        "x3c-coefficients"
+      ],
+      "lean_declarations": [
+        "Counting.X3C.Instance.Solution.coordinate_sum_le",
+        "Counting.X3C.Instance.Solution.digits_exact",
+        "Counting.X3C.Instance.coordinates_binary"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "baseline-weight",
+      "title": "Baseline group sizes give order N0=R+1 and weighted total C",
+      "kind": "unnumbered",
+      "area": "hardness",
+      "status": "verified",
+      "statement": "Baseline group sizes give order N0=R+1 and weighted total C",
+      "sources": [
+        {
+          "context_label": "app:conp-hardness"
+        }
+      ],
+      "dependencies": [
+        "x3c-coefficients"
+      ],
+      "lean_declarations": [
+        "Counting.X3C.baselineGroups_order",
+        "Counting.X3C.Instance.baselineGroups_equation"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "path-graph-valid",
+      "title": "Repeated path graphs and the baseline ordinary star are strongly connected and loopless with the stated degrees",
+      "kind": "unnumbered",
+      "area": "hardness",
+      "status": "verified",
+      "statement": "Repeated path graphs and the baseline ordinary star are strongly connected and loopless with the stated degrees",
+      "sources": [
+        {
+          "context_label": "app:conp-hardness"
+        }
+      ],
+      "dependencies": [
+        "baseline-weight",
+        "model-network"
+      ],
+      "lean_declarations": [
+        "Counting.HardnessPath.path_connected",
+        "Counting.HardnessPath.star_connected",
+        "Counting.HardnessPath.path_loopless",
+        "Counting.HardnessPath.star_loopless",
+        "Counting.HardnessPath.leaders",
+        "Counting.HardnessPath.population",
+        "Counting.HardnessPath.member_outdegree",
+        "Counting.HardnessPath.leader_outdegree",
+        "Counting.HardnessPath.star_member_outdegree",
+        "Counting.HardnessPath.star_leader_outdegree"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "baseline-final-visible",
+      "title": "The ordinary star exposes all B nonleader nodes per group and all earlier ancestors",
+      "kind": "unnumbered",
+      "area": "hardness",
+      "status": "verified",
+      "statement": "The ordinary star exposes all B nonleader nodes per group and all earlier ancestors",
+      "sources": [
+        {
+          "context_label": "app:conp-hardness"
+        }
+      ],
+      "dependencies": [
+        "path-prefix",
+        "path-graph-valid",
+        "exhaustive-prefix"
+      ],
+      "lean_declarations": [
+        "Counting.HardnessBaseline.X3CBaseline.baseline_final_visible",
+        "Counting.HardnessBaseline.X3CBaseline.intrinsic_final_card"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "reduction-bit-cost",
+      "title": "The baseline network and vista reductions have polynomial binary encoding size and construction time",
+      "kind": "unnumbered",
+      "area": "cost",
+      "status": "verified",
+      "statement": "The baseline network and vista reductions have polynomial binary encoding size and construction time",
+      "sources": [
+        {
+          "context_label": "app:conp-hardness"
+        }
+      ],
+      "dependencies": [
+        "x3c-coefficients",
+        "baseline-weight",
+        "explicit-network-vistas",
+        "machine-arithmetic",
+        "machine-graphs"
+      ],
+      "lean_declarations": [
+        "Counting.HardnessEncoded.networkReduce_length",
+        "Counting.HardnessEncoded.vistaReduce_length",
+        "Counting.HardnessEncoded.networkReduce_correct",
+        "Counting.HardnessEncoded.vistaReduce_correct",
+        "Counting.X3CEncoding.decoded_input_size_bounds",
+        "Counting.External.CoefficientMachine.coefficientStream_executes",
+        "Counting.External.CoefficientMachine.inputCoefficients_instance",
+        "Counting.External.CoefficientMachine.machineGenerator_computesCleanIn",
+        "Counting.HardnessNetworkMachine.networkWord_coefficients",
+        "Counting.HardnessNetworkMachine.coefficient_networkWord_encoded_bound",
+        "Counting.HardnessNetworkMachine.coefficient_pathMatrix_encoded_bound",
+        "Counting.HardnessNetworkMachine.coefficient_starMatrix_encoded_bound",
+        "Counting.HardnessNetworkMachine.buildNetworkCost_polynomial",
+        "Counting.HardnessNetworkMachine.networkGeneratorCost_polynomial",
+        "Counting.HardnessNetworkMachine.normalizedNetwork_correct",
+        "Counting.HardnessNetworkMachine.normalizedNetwork_restricted",
+        "Counting.HardnessNetworkMachine.normalizedNetworkMachine_computesCleanIn",
+        "Counting.HardnessVistaRaw.normalizedVista_computesCleanIn",
+        "Counting.HardnessVistaRaw.normalizedVista_correct",
+        "Counting.HardnessVistaRaw.normalizedVista_restricted"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "visible-set-bounds",
+      "title": "Any realization satisfies a_i>=B, weighted inequality and R<=|S_(B-1)|<=|S_1|<=R+q",
+      "kind": "unnumbered",
+      "area": "hardness",
+      "status": "verified",
+      "statement": "Any realization satisfies a_i>=B, weighted inequality and R<=|S_(B-1)|<=|S_1|<=R+q",
+      "sources": [
+        {
+          "context_label": "eq:visible-bounds"
+        }
+      ],
+      "dependencies": [
+        "baseline-final-visible",
+        "h1-refinement",
+        "h3-flow",
+        "x3c-coefficients"
+      ],
+      "lean_declarations": [
+        "Counting.HardnessVisible.group_lower",
+        "Counting.HardnessVisible.group_weighted_bound",
+        "Counting.HardnessVisible.first_represented_upper",
+        "Counting.HardnessVisible.final_represented_lower",
+        "Counting.HardnessExhaustive.represented_subset"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "exhaustive-exact-equation",
+      "title": "Full first level turns the leader outdegree inequality into the exact-cover equation",
+      "kind": "unnumbered",
+      "area": "hardness",
+      "status": "verified",
+      "statement": "Full first level turns the leader outdegree inequality into the exact-cover equation",
+      "sources": [
+        {
+          "context_label": "app:conp-hardness"
+        }
+      ],
+      "dependencies": [
+        "first-exhaustive",
+        "h3-flow",
+        "x3c-digits"
+      ],
+      "lean_declarations": [
+        "Counting.HardnessVisible.group_weighted_equation",
+        "Counting.HardnessVisible.population_groupOrder",
+        "Counting.HardnessVisible.population_dichotomy"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "alternate-group-weight",
+      "title": "An exact cover gives order N1=N0+q-1 and the same weighted group total C",
+      "kind": "unnumbered",
+      "area": "hardness",
+      "status": "verified",
+      "statement": "An exact cover gives order N1=N0+q-1 and the same weighted group total C",
+      "sources": [
+        {
+          "context_label": "app:conp-hardness"
+        }
+      ],
+      "dependencies": [
+        "x3c-digits",
+        "baseline-weight"
+      ],
+      "lean_declarations": [
+        "Counting.X3C.Instance.coverGroups_order",
+        "Counting.X3C.Instance.coverGroups_equation",
+        "Counting.X3C.Instance.shifted_equation_classification",
+        "Counting.X3C.Instance.shifted_order_dichotomy"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "alternate-leader",
+      "title": "Adjusted final graph reproduces the baseline leader vista at order N1",
+      "kind": "unnumbered",
+      "area": "hardness",
+      "status": "verified",
+      "statement": "The double arc and selected two-member suffixes match previous-state receipts and leader outdegree; the graph is loopless and strongly connected. Late outdegree awareness is essential.",
+      "sources": [
+        {
+          "context_label": "app:conp-hardness"
+        }
+      ],
+      "dependencies": [
+        "alternate-group-weight",
+        "vista-isomorphism",
+        "path-graph-valid"
+      ],
+      "lean_declarations": [
+        "Counting.HardnessAlternative.X3CAlternative.leader_history_eq",
+        "Counting.HardnessAlternative.X3CAlternative.realizes",
+        "Counting.HardnessAlternative.network_loopless",
+        "Counting.HardnessAlternative.network_admissible"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "alternate-nonleaders",
+      "title": "An ordinary-star alternate final graph simultaneously reproduces every baseline nonleader vista",
+      "kind": "unnumbered",
+      "area": "hardness",
+      "status": "verified",
+      "statement": "An ordinary-star alternate final graph simultaneously reproduces every baseline nonleader vista",
+      "sources": [
+        {
+          "context_label": "app:conp-hardness"
+        }
+      ],
+      "dependencies": [
+        "alternate-group-weight",
+        "vista-isomorphism"
+      ],
+      "lean_declarations": [
+        "Counting.HardnessAlternative.X3CAlternative.nonleader_history_eq",
+        "Counting.HardnessAlternative.X3CAlternative.nonleaders_realizable"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "reduction-spectrum",
+      "title": "The reduction spectrum is {N0} without an exact cover and {N0,N1} with one",
+      "kind": "unnumbered",
+      "area": "hardness",
+      "status": "verified",
+      "statement": "The reduction spectrum is {N0} without an exact cover and {N0,N1} with one",
+      "sources": [
+        {
+          "context_label": "app:conp-hardness"
+        }
+      ],
+      "dependencies": [
+        "exhaustive-exact-equation",
+        "alternate-leader",
+        "baseline-final-visible"
+      ],
+      "lean_declarations": [
+        "Counting.HardnessReduction.spectrum_member_iff",
+        "Counting.HardnessReduction.spectrum_exact",
+        "Counting.HardnessReduction.spectrum_no_cover",
+        "Counting.HardnessReduction.spectrum_has_cover"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "vista-hardness",
+      "title": "Complement-X3C reduces in polynomial time to AtMostOneVista on realizable one-leader vistas",
+      "kind": "unnumbered",
+      "area": "hardness",
+      "status": "verified",
+      "statement": "Complement-X3C reduces in polynomial time to AtMostOneVista on realizable one-leader vistas",
+      "sources": [
+        {
+          "context_label": "app:conp-hardness"
+        }
+      ],
+      "dependencies": [
+        "reduction-spectrum",
+        "reduction-bit-cost",
+        "x3c-np-complete"
+      ],
+      "lean_declarations": [
+        "Counting.HardnessReduction.atMostOneVista_iff_noExactCover",
+        "Counting.HardnessEncoded.vistaReduce_correct",
+        "Counting.HardnessEncoded.vistaReduce_restricted",
+        "Counting.HardnessEncoded.vistaReduce_length",
+        "Counting.HardnessEncoded.Pipeline.vista_correct",
+        "Counting.HardnessEncoded.Pipeline.vista_length",
+        "Counting.HardnessVistaRaw.complementX3C_reduces_AtMostOneVista",
+        "Counting.HardnessVistaRaw.AtMostOneVista_coNPHard",
+        "Counting.HardnessVistaRaw.AtMostOneVista_realizable_one_leader_hard"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "network-hardness",
+      "title": "Complement-X3C reduces to SomeAgentKnows on loopless one-leader networks",
+      "kind": "unnumbered",
+      "area": "hardness",
+      "status": "verified",
+      "statement": "Complement-X3C reduces to SomeAgentKnows on loopless one-leader networks",
+      "sources": [
+        {
+          "context_label": "app:conp-hardness"
+        }
+      ],
+      "dependencies": [
+        "alternate-leader",
+        "alternate-nonleaders",
+        "reduction-spectrum",
+        "x3c-normalization",
+        "matching-to-x3c",
+        "x3c-coefficients",
+        "machine-arithmetic",
+        "complexity-complements"
+      ],
+      "lean_declarations": [
+        "Counting.HardnessReduction.someAgentKnows_iff_noExactCover",
+        "Counting.HardnessBaseline.X3CBaseline.loopless",
+        "Counting.HardnessEncoded.networkReduce_correct",
+        "Counting.HardnessEncoded.networkReduce_restricted",
+        "Counting.HardnessEncoded.networkReduce_length",
+        "Counting.HardnessEncoded.Pipeline.network_correct",
+        "Counting.HardnessEncoded.Pipeline.network_length",
+        "Counting.HardnessNetworkMachine.normalizedNetwork_correct",
+        "Counting.HardnessNetworkMachine.normalizedNetwork_restricted",
+        "Counting.HardnessNetworkMachine.networkMachine_computesCleanIn",
+        "Counting.HardnessNetworkMachine.normalizedNetworkMachine_computesCleanIn",
+        "Counting.HardnessNetworkMachine.complementX3C_reduces_SomeAgentKnows",
+        "Counting.HardnessNetworkMachine.SomeAgentKnows_coNPHard"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "machine-model",
+      "title": "Fixed finite-alphabet Turing-machine cost model and simulation of executable Lean routines",
+      "kind": "external_dependency",
+      "area": "complexity",
+      "status": "verified",
+      "statement": "Languages, deterministic and nondeterministic polynomial time, and polynomial many-one reductions use a fixed finite-alphabet machine with a verified encoding and execution bridge.",
+      "sources": [],
+      "dependencies": [],
+      "lean_declarations": [
+        "Counting.Machine.alphabet_card",
+        "Counting.Machine.control_card",
+        "Counting.Machine.step_simulates",
+        "Counting.Machine.run_simulates",
+        "Counting.Machine.haltsAt_tm0",
+        "Counting.Encoding.vista_roundtrip",
+        "Counting.StackMachine.Compiler.physical_run",
+        "Counting.StackMachine.Compiler.compile_halts",
+        "Counting.StackMachine.Compiler.computesCleanIn_polynomial",
+        "Counting.StackMachine.EncodingPrograms.frame_computesCleanIn",
+        "Counting.StackMachine.EncodingPrograms.natural_computesCleanIn",
+        "Counting.StackMachine.EncodingPrograms.pair_executes_spec",
+        "Counting.StackMachine.EncodingPrograms.pair_naturalPrefix_computesCleanIn",
+        "Counting.StackMachine.Routine.polynomialLength_executes",
+        "Counting.StackMachine.Routine.polynomialLengthTime_bound",
+        "Counting.StackMachine.Routine.emitNatural_executes",
+        "Counting.StackMachine.EncodingPrograms.boundedCount_executes",
+        "Counting.StackMachine.EncodingPrograms.boundedCount_status",
+        "Counting.StackMachine.EncodingPrograms.boundedCount_unary_length",
+        "Counting.StackMachine.Lookup.preservingLookup_executes",
+        "Counting.StackMachine.Lookup.lookupCost_le",
+        "Counting.StackMachine.EncodingPrograms.list_computesCleanIn",
+        "Counting.StackMachine.EncodingPrograms.array_computesCleanIn",
+        "Counting.StackMachine.EncodingPrograms.listPrefix_executes",
+        "Counting.StackMachine.EncodingPrograms.listCheck_decodeExact",
+        "Counting.StackMachine.FieldAccess.seek_executes",
+        "Counting.StackMachine.FieldAccess.scanCost_le",
+        "Counting.StackMachine.FieldAccess.preservingRead_executes",
+        "Counting.StackMachine.FieldAccess.selectPayload_naturalList",
+        "Counting.StackMachine.Routine.relocate_executes",
+        "Counting.StackMachine.Routine.isolate_executes",
+        "Counting.StackMachine.FieldAccess.replace_executes",
+        "Counting.StackMachine.FieldAccess.replaceCost_le",
+        "Counting.StackMachine.FieldAccess.replaceFieldWord_naturalArray",
+        "Counting.StackMachine.EncodingPrograms.DagParser.vista_serialization_computesCleanIn",
+        "Counting.StackMachine.EncodingPrograms.DagParser.node_serialization_computesCleanIn",
+        "Counting.StackMachine.EncodingPrograms.DagParser.verifier_input_serialization_computesCleanIn",
+        "Counting.StackMachine.BooleanFold.single_executes",
+        "Counting.StackMachine.BooleanFold.fold_executes",
+        "Counting.StackMachine.EncodingPrograms.boundedNatural_executes",
+        "Counting.StackMachine.BooleanFold.prefix_executes",
+        "Counting.StackMachine.Compare.preservingLengthEquality_executes",
+        "Counting.Complexity.ComputesCleanIn.boolean_decides",
+        "Counting.StackMachine.FieldAccess.writePayload_executes",
+        "Counting.StackMachine.FieldAccess.writePayload_framedList_executes",
+        "Counting.External.CoverInputValidation.validInput_iff",
+        "Counting.External.CoverInputValidation.routine_executes",
+        "Counting.External.CoverInputValidation.machineValidator_computesCleanIn",
+        "Counting.External.CoverNormalization.normalization_complete",
+        "Counting.External.CoefficientMachine.machineGenerator_computesCleanIn",
+        "Counting.Machine.anchorSolve_clean",
+        "Counting.StackMachine.DagUpdate.Import.loopBudget_polynomial",
+        "Counting.StackMachine.DagUpdate.Import.importNodes_executes_polynomial",
+        "Counting.StackMachine.DagUpdate.Import.completeImport_polynomial",
+        "Counting.Machine.dagImport_clean",
+        "Counting.Machine.dagImport_exact",
+        "Counting.StackMachine.AuditDescendant.countLoop_executes",
+        "Counting.StackMachine.AuditDescendant.countTable_executes",
+        "Counting.StackMachine.AuditDescendant.readWeight_executes",
+        "Counting.StackMachine.AuditDescendant.checkAncestor_auditDescendantAt",
+        "Counting.StackMachine.AuditPrefix.opening_executes",
+        "Counting.StackMachine.AuditPrefix.countClassify_executes",
+        "Counting.StackMachine.AuditPrefix.countCompare_executes",
+        "Counting.StackMachine.DagUpdate.Key.preservingNodes_executes",
+        "Counting.Executable.mergeSort_eq_stableInsertion",
+        "Counting.Executable.canonical_ordered_indices_fold",
+        "Counting.Machine.initializeState_clean",
+        "Counting.Machine.advance_polynomial",
+        "Counting.Machine.CountingRuntime.local_runtime_under_polynomial_arc_bound"
+      ],
+      "source_role": "external_dependency",
+      "supporting_role": "Finite-alphabet machine and verified simulation foundations used to interpret every complexity and local-runtime statement."
+    },
+    {
+      "id": "machine-arithmetic",
+      "title": "Polynomial bit-cost primitives for binary natural, integer and rational arithmetic",
+      "kind": "external_dependency",
+      "area": "cost",
+      "status": "verified",
+      "statement": "Verify executable addition, multiplication, comparison, gcd, rational normalization and encoding bounds in the chosen machine model.",
+      "sources": [
+        {
+          "context_label": "sec:core-algorithm"
+        }
+      ],
+      "dependencies": [],
+      "lean_declarations": [
+        "Counting.Machine.increment_halts",
+        "Counting.Machine.increment_binary_correct",
+        "Counting.Complexity.increment_computesIn",
+        "Counting.Machine.rightShift_natural",
+        "Counting.Machine.leftShift_natural",
+        "Counting.Machine.frame_prefix_linear",
+        "Counting.Machine.increment_computesCleanIn",
+        "Counting.Machine.increment_natural_clean",
+        "Counting.Machine.comparison_computesCleanIn",
+        "Counting.Machine.comparison_natural_clean",
+        "Counting.Machine.addition_computesCleanIn",
+        "Counting.Machine.addition_natural_clean",
+        "Counting.Machine.unaryLength_computesCleanIn",
+        "Counting.Machine.unaryToBinary_computesCleanIn",
+        "Counting.StackMachine.Compare.preservingEquality_executes",
+        "Counting.StackMachine.Compare.preservingCost_le",
+        "Counting.StackMachine.Compare.preservingLengthLE_executes",
+        "Counting.StackMachine.Compare.preservingLengthCost_eq",
+        "Counting.StackMachine.Normalize.format_executes",
+        "Counting.StackMachine.Normalize.formatCost_le",
+        "Counting.Machine.normalization_computesCleanIn",
+        "Counting.StackMachine.Compare.Framed.computesCleanIn",
+        "Counting.StackMachine.Compare.Framed.check_true_iff",
+        "Counting.Machine.multiplication_computesCleanIn",
+        "Counting.Machine.multiplication_natural_clean",
+        "Counting.StackMachine.Compare.NumericFramed.computesCleanIn",
+        "Counting.StackMachine.Compare.NumericFramed.check_true_iff",
+        "Counting.StackMachine.Compare.NumericFramed.natural_correct",
+        "Counting.Machine.division_computesCleanIn",
+        "Counting.Machine.division_natural_clean",
+        "Counting.Machine.gcd_computesCleanIn",
+        "Counting.Machine.gcd_natural_clean",
+        "Counting.StackMachine.Binary.euclidIter_size_bound",
+        "Counting.StackMachine.Binary.euclidIter_size_le",
+        "Counting.Machine.signedAddition_computesCleanIn",
+        "Counting.Machine.signedAddition_integer_clean",
+        "Counting.Machine.signedProduct_computesCleanIn",
+        "Counting.Machine.signedProduct_integer_clean",
+        "Counting.StackMachine.RationalArithmetic.normalization_executes",
+        "Counting.StackMachine.RationalArithmetic.rationalParser_executes",
+        "Counting.StackMachine.RationalArithmetic.formatNormalized_executes",
+        "Counting.StackMachine.RationalArithmetic.normalization_computes",
+        "Counting.Machine.rationalNormalization_computesCleanIn",
+        "Counting.Machine.rationalNormalization_raw_clean",
+        "Counting.Machine.rationalNormalization_rational_clean",
+        "Counting.StackMachine.RationalArithmetic.inverse_computes",
+        "Counting.Machine.rationalInverse_computesCleanIn",
+        "Counting.Machine.rationalInverse_rational_clean",
+        "Counting.Machine.rationalInverse_raw_clean",
+        "Counting.Machine.rationalProduct_computesCleanIn",
+        "Counting.Machine.rationalProduct_rationals_clean",
+        "Counting.Machine.rationalAddition_computesCleanIn",
+        "Counting.Machine.rationalAddition_rationals_clean",
+        "Counting.Machine.rationalNegation_computesCleanIn",
+        "Counting.Machine.rationalNegation_rational_clean",
+        "Counting.StackMachine.RationalArithmetic.rationalEquality_executes",
+        "Counting.StackMachine.RationalArithmetic.rationalEquality_cost",
+        "Counting.StackMachine.RationalArithmetic.castNatural_executes",
+        "Counting.Machine.rationalCast_computesCleanIn",
+        "Counting.Machine.rationalCast_natural_clean",
+        "Counting.Machine.rationalPredicate_computesCleanIn",
+        "Counting.Machine.rationalPredicate_rational_clean",
+        "Counting.Machine.rationalToNat_computesCleanIn",
+        "Counting.Machine.rationalToNat_rational_clean",
+        "Counting.StackMachine.RationalArithmetic.positiveIntegral_conversion",
+        "Counting.Machine.rationalPositiveIntegral_computesCleanIn",
+        "Counting.Machine.rationalPositiveIntegral_rational_clean",
+        "Counting.Machine.rationalSubtraction_computesCleanIn",
+        "Counting.Machine.rationalSubtraction_rationals_clean",
+        "Counting.Machine.rationalEquality_computesCleanIn",
+        "Counting.Machine.rationalEquality_rationals_clean",
+        "Counting.PositiveNaturals.result_executable",
+        "Counting.Machine.positiveNaturals_clean",
+        "Counting.Machine.rowScale_clean",
+        "Counting.Machine.rowAdd_clean",
+        "Counting.Machine.rowAxpy_clean",
+        "Counting.StackMachine.Binary.predecessor_executes"
+      ],
+      "source_role": "external_dependency"
+    },
+    {
+      "id": "machine-graphs",
+      "title": "Polynomial bit-cost primitives for finite graph validation, reachability and canonical partition construction",
+      "kind": "external_dependency",
+      "area": "cost",
+      "status": "verified",
+      "statement": "The exact graph operations used by the vista and certificate implementations have proved machine-time bounds.",
+      "sources": [
+        {
+          "context_label": "app:conp-membership"
+        }
+      ],
+      "dependencies": [
+        "machine-model",
+        "machine-arithmetic"
+      ],
+      "lean_declarations": [
+        "Counting.StackMachine.EncodingPrograms.incomingEncodedCheck_iff",
+        "Counting.StackMachine.EncodingPrograms.incomingEncodedCheck_encode",
+        "Counting.StackMachine.EncodingPrograms.incomingEncodedCheck_invalid",
+        "Counting.StackMachine.EncodingPrograms.incoming_computesCleanIn",
+        "Counting.StackMachine.EncodingPrograms.incomingPrefix_executes",
+        "Counting.StackMachine.EncodingPrograms.DagParser.nodeRead_executes",
+        "Counting.StackMachine.EncodingPrograms.DagParser.nodeRead_get",
+        "Counting.StackMachine.EncodingPrograms.DagParser.nodeRead_computesCleanIn",
+        "Counting.StackMachine.EncodingPrograms.DagParser.preservingNodeRead_executes",
+        "Counting.StackMachine.EncodingPrograms.DagParser.preservingNodeRead_get",
+        "Counting.StackMachine.DagValidation.binaryParentCheck_polynomial",
+        "Counting.StackMachine.DagValidation.redReferenceCheck_polynomial",
+        "Counting.StackMachine.DagValidation.initialCheck_typed",
+        "Counting.StackMachine.DagValidation.redCondition_vista",
+        "Counting.StackMachine.DagValidation.redIncomingPrefix_executes",
+        "Counting.StackMachine.DagValidation.fullIncomingPrefix_executes",
+        "Counting.StackMachine.DagValidation.incomingCondition_vista",
+        "Counting.StackMachine.DagValidation.nodeCheck_executes",
+        "Counting.StackMachine.DagValidation.nodeCondition_vista",
+        "Counting.Executable.backwardCoverCheck_eq_closure_all",
+        "Counting.StackMachine.DagValidation.nodesPrefix_executes",
+        "Counting.StackMachine.DagValidation.distinctPrefix_executes",
+        "Counting.StackMachine.DagValidation.distinctAllRange_eraseDups",
+        "Counting.Executable.distinctNodesCheck_iff_eraseDups",
+        "Counting.Executable.backwardCoverAnyCheck_eq_closure_all",
+        "Counting.StackMachine.DagValidation.coverRange_eq_closure_all",
+        "Counting.StackMachine.DagValidation.validation_computesCleanIn",
+        "Counting.RealizabilityVerifier.BitGraph.iterate_mem",
+        "Counting.RealizabilityVerifier.BitGraph.check_eq",
+        "Counting.RealizabilityVerifier.CompactGraph.bitCheck_eq",
+        "Counting.StackMachine.RealizabilityCheck.reachPass_executes",
+        "Counting.StackMachine.RealizabilityCheck.reachSource_executes",
+        "Counting.StackMachine.RealizabilityCheck.reachCheck_executes",
+        "Counting.StackMachine.RealizabilityCheck.reachCheck_compact",
+        "Counting.RealizabilityVerifier.CompactGraph.fieldsFromBits_tabulated",
+        "Counting.RealizabilityVerifier.CompactGraph.tabulated_check_eq",
+        "Counting.StackMachine.RealizabilityCheck.maskSlots_executes",
+        "Counting.StackMachine.RealizabilityCheck.maskSlots_old",
+        "Counting.StackMachine.RealizabilityCheck.maskSlots_new",
+        "Counting.StackMachine.RealizabilityCheck.maskSlots_degree",
+        "Counting.StackMachine.RealizabilityCheck.incomingPositive_executes",
+        "Counting.StackMachine.RealizabilityCheck.massFlags_executes",
+        "Counting.StackMachine.RealizabilityCheck.massFlags_verifier_component",
+        "Counting.StackMachine.RealizabilityCheck.arcTableValues_fields",
+        "Counting.StackMachine.RealizabilityCheck.activeVector_executes",
+        "Counting.StackMachine.RealizabilityCheck.nodeIncidence_executes",
+        "Counting.Executable.addCount_encoded_length",
+        "Counting.Executable.referenceMap_encoded_polynomial",
+        "Counting.StackMachine.DagUpdate.addCount_executes_polynomial",
+        "Counting.StackMachine.DagUpdate.referenceLookup_executes",
+        "Counting.StackMachine.DagUpdate.Reindex.incoming_executes_polynomial",
+        "Counting.StackMachine.DagUpdate.Reindex.incoming_referenceMap",
+        "Counting.StackMachine.DagUpdate.remapParent_executes",
+        "Counting.StackMachine.DagUpdate.remapParentCode_referenceMap",
+        "Counting.StackMachine.DagUpdate.NodeMap.referenceMap_executes_polynomial",
+        "Counting.Executable.intern_toArray",
+        "Counting.StackMachine.DagUpdate.Intern.internNode_executes_array",
+        "Counting.Executable.importFold_payload_bound",
+        "Counting.Executable.importPrefix_encoded_polynomial",
+        "Counting.Executable.importVista_encoded_polynomial",
+        "Counting.StackMachine.DagUpdate.Import.stepBudget_cap",
+        "Counting.StackMachine.DagUpdate.Import.stepBudget_prefix",
+        "Counting.StackMachine.DagUpdate.Import.loopBudget_polynomial",
+        "Counting.StackMachine.DagUpdate.Import.importNodes_executes_polynomial",
+        "Counting.StackMachine.DagUpdate.Import.completeImport_polynomial",
+        "Counting.Machine.dagImport_clean",
+        "Counting.Machine.dagImport_exact",
+        "Counting.StackMachine.NetworkRecognition.networkValidationMachine_concrete",
+        "Counting.StackMachine.NetworkRecognition.validNetworkWord_eq_decodeNetwork",
+        "Counting.StackMachine.NetworkRecognition.admissibleNetworkLanguage_in_P",
+        "Counting.StackMachine.NetworkVista.initialPrefix_network",
+        "Counting.StackMachine.NetworkVista.Reader.preservingRead_executes_polynomial",
+        "Counting.StackMachine.NetworkVista.rowTotal_matrix",
+        "Counting.StackMachine.NetworkVista.receivedPairs_allAgents",
+        "Counting.Machine.protocolUpdate_clean",
+        "Counting.Machine.canonicalDag_clean",
+        "Counting.Machine.networkVistaRaw_clean",
+        "Counting.StackMachine.NetworkComplement.machine_computes"
+      ],
+      "source_role": "external_dependency"
+    },
+    {
+      "id": "complexity-complements",
+      "title": "Polynomial reductions, NP/coNP complement laws and consequence of P != NP",
+      "kind": "external_dependency",
+      "area": "complexity",
+      "status": "verified",
+      "statement": "Complement and reduction-closure laws transport the checked NP-completeness results to coNP-completeness.",
+      "sources": [
+        {
+          "context_label": "thm:main-conp-complete"
+        },
+        {
+          "context_label": "app:conp-membership"
+        }
+      ],
+      "dependencies": [],
+      "lean_declarations": [
+        "Counting.Complexity.P_complement_iff",
+        "Counting.Complexity.NPComplete.complement",
+        "Counting.Complexity.ManyOnePoly.trans",
+        "Counting.Complexity.P.of_reduction",
+        "Counting.Complexity.coNPHard.of_reduction",
+        "Counting.Complexity.P.subset_NP",
+        "Counting.Complexity.RunsIn.framedVerifier",
+        "Counting.Complexity.NPHard.not_P",
+        "Counting.Complexity.coNPHard.not_P"
+      ],
+      "source_role": "external_dependency"
+    },
+    {
+      "id": "cook-levin",
+      "title": "Cook-Levin: satisfiability is NP-complete in the fixed machine model",
+      "kind": "external_dependency",
+      "area": "external",
+      "status": "verified",
+      "statement": "Provide a complete checked proof, or reuse a checked dependency, rather than assuming SAT hardness.",
+      "sources": [
+        {
+          "context_label": "app:conp-hardness"
+        }
+      ],
+      "dependencies": [],
+      "lean_declarations": [
+        "Counting.External.MachineBridge.bounded_accepts_iff",
+        "Counting.External.CookLevin.boundedFormula_satisfiable_iff",
+        "Counting.External.CookLevin.verifierFormula_satisfiable_iff",
+        "Counting.External.CookLevin.reduce_yes_iff",
+        "Counting.External.CookLevin.NP_exists_reduction",
+        "Counting.External.InitialRows.Setup.formula_binary_length",
+        "Counting.External.CookLevin.reduce_length_polynomial",
+        "Counting.External.CookLevin.StackGenerator.boundsRoutine_executes",
+        "Counting.External.CookLevin.StackGenerator.boundsCost_polynomial",
+        "Counting.External.CookLevin.StackGenerator.oneHotRoutine_executes",
+        "Counting.External.CookLevin.StackGenerator.oneHot_time_bound",
+        "Counting.External.CookLevin.StackGenerator.transitionRoutine_executes",
+        "Counting.External.CookLevin.StackGenerator.transitionCell_executes",
+        "Counting.External.CookLevin.StackGenerator.transitionCellBound_polynomial",
+        "Counting.External.CookLevin.StackGenerator.transitionsRoutine_executes",
+        "Counting.External.CookLevin.StackGenerator.transitionsBound_polynomial",
+        "Counting.External.CookLevin.StackGenerator.finalClauseRoutine_executes",
+        "Counting.External.CookLevin.StackGenerator.finalClauseBound_polynomial",
+        "Counting.External.InitialRows.Setup.constraints_adjacent",
+        "Counting.External.CookLevin.StackGenerator.initialRowRoutine_executes",
+        "Counting.External.CookLevin.StackGenerator.initialRowBound_polynomial",
+        "Counting.External.CookLevin.StackGenerator.formula_raw_blocks",
+        "Counting.External.CookLevin.StackGenerator.formula_encoded_blocks",
+        "Counting.External.CookLevin.StackGenerator.formula_codec_header",
+        "Counting.External.CookLevin.StackGenerator.initialUnary_block_length",
+        "Counting.External.CookLevin.StackGenerator.formula_length_exact",
+        "Counting.External.CookLevin.StackGenerator.formulaBodyRoutine_executes",
+        "Counting.External.CookLevin.StackGenerator.formulaBodyBound_polynomial",
+        "Counting.External.CookLevin.StackGenerator.generatorPrepare_executes",
+        "Counting.External.CookLevin.StackGenerator.generatorRoutine_executes",
+        "Counting.External.CookLevin.StackGenerator.stackGenerator_halts",
+        "Counting.External.CookLevin.StackGenerator.generatorCost_polynomial",
+        "Counting.External.CookLevin.StackGenerator.stackGenerator_computes",
+        "Counting.External.CookLevin.StackGenerator.machineGenerator_computesCleanIn",
+        "Counting.External.CookLevin.SAT_NPHard",
+        "Counting.Machine.run_simulates",
+        "Counting.StackMachine.Compiler.compile_halts",
+        "Counting.External.SATVerification.exists_check_iff",
+        "Counting.External.SATVerification.entryRoutine_executes",
+        "Counting.External.SATVerification.transducer_computesCleanIn",
+        "Counting.External.SATVerification.verifier_decides",
+        "Counting.External.CookLevin.SAT_NP",
+        "Counting.External.CookLevin.SAT_NPComplete"
+      ],
+      "source_role": "external_dependency"
+    },
+    {
+      "id": "sat-to-three-sat",
+      "title": "Polynomial equisatisfiable SAT-to-3SAT reduction and 3SAT NP-completeness",
+      "kind": "external_dependency",
+      "area": "external",
+      "status": "verified",
+      "statement": "A correct polynomial many-one reduction maps the binary SAT language to the binary 3SAT language.",
+      "sources": [
+        {
+          "context_label": "app:conp-hardness"
+        }
+      ],
+      "dependencies": [
+        "cook-levin",
+        "machine-arithmetic"
+      ],
+      "lean_declarations": [
+        "Counting.External.CNF.toThreeSAT_yes_iff",
+        "Counting.External.CNF.toThreeSAT_size_polynomial",
+        "Counting.External.CNFEncoding.input_size_bounds",
+        "Counting.External.CNF.toThreeSAT_toCNF_serial",
+        "Counting.External.CNF.toThreeSAT_toRaw_serial",
+        "Counting.External.CNFMachine.validateRoutine_executes",
+        "Counting.StackMachine.Routine.emitTripleSelected_literals",
+        "Counting.External.CNFMachine.generatorClause_executes",
+        "Counting.External.CNFMachine.generatorFormulaLoop_executes",
+        "Counting.External.CNFMachine.formulaRows_eq_reducedInput",
+        "Counting.External.CNFMachine.machineGenerator_computesCleanIn",
+        "Counting.External.CNFMachine.SAT_reduces_ThreeSAT",
+        "Counting.External.CNFMachine.ThreeSAT_NPComplete"
+      ],
+      "source_role": "external_dependency"
+    },
+    {
+      "id": "three-sat-to-matching",
+      "title": "Polynomial 3SAT-to-three-dimensional-matching reduction",
+      "kind": "external_dependency",
+      "area": "external",
+      "status": "verified",
+      "statement": "A correct polynomial many-one reduction maps the binary 3SAT language to the binary three-dimensional matching language.",
+      "sources": [
+        {
+          "context_label": "app:conp-hardness"
+        }
+      ],
+      "dependencies": [
+        "sat-to-three-sat"
+      ],
+      "lean_declarations": [
+        "Counting.External.ThreeSAT.toThreeDM_yes_iff",
+        "Counting.External.ThreeSAT.toThreeDM_size_polynomial",
+        "Counting.External.CNF.normalizedX3C_yes_iff",
+        "Counting.External.CNFEncoding.normalizedX3C_size_bounds",
+        "Counting.External.MatchingDimensions.routine_executes_polynomial",
+        "Counting.External.MatchingMachine.emitVariables_executes",
+        "Counting.External.MatchingMachine.completionRows_coordinates",
+        "Counting.External.MatchingMachine.variableBlocksRows_coordinates",
+        "Counting.External.MatchingMachine.clauseRows_coordinates",
+        "Counting.External.MatchingMachine.generateClauseLoop_executes",
+        "Counting.External.MatchingValidation.routine_executes",
+        "Counting.External.MatchingValidation.check_iff",
+        "Counting.External.MatchingMachine.matchingGenerator_executes",
+        "Counting.External.MatchingMachine.matchingGenerator_output_eq",
+        "Counting.External.MatchingMachine.entryRoutine_executes",
+        "Counting.External.MatchingMachine.entryCost_polynomial",
+        "Counting.External.MatchingMachine.reduceMatching_yes_iff",
+        "Counting.External.MatchingMachine.machineGenerator_computesCleanIn",
+        "Counting.External.MatchingMachine.ThreeSAT_reduces_ThreeDM",
+        "Counting.External.MatchingMachine.ThreeDM_NPHard"
+      ],
+      "source_role": "external_dependency"
+    },
+    {
+      "id": "matching-to-x3c",
+      "title": "Polynomial three-dimensional-matching-to-X3C reduction",
+      "kind": "external_dependency",
+      "area": "external",
+      "status": "verified",
+      "statement": "The disjoint-coordinate triple encoding gives an equivalent X3C instance with an explicit universe and polynomial construction time.",
+      "sources": [
+        {
+          "context_label": "app:conp-hardness"
+        }
+      ],
+      "dependencies": [
+        "three-sat-to-matching"
+      ],
+      "lean_declarations": [
+        "Counting.External.ThreeDM.toX3C_yes_iff",
+        "Counting.External.ThreeDM.toNormalizedX3C_yes_iff",
+        "Counting.External.ThreeDM.normalized_size",
+        "Counting.X3CEncoding.CNFReduction.reduce_correct",
+        "Counting.X3CEncoding.CNFReduction.reduce_length",
+        "Counting.X3CEncoding.encode_length_polynomial",
+        "Counting.X3CEncoding.CNFReduction.reduce_length_polynomial",
+        "Counting.X3CEncoding.decodeExact_raw_isSome_iff",
+        "Counting.External.MatchingInputValidation.validInput_iff",
+        "Counting.External.MatchingInputValidation.routine_executes",
+        "Counting.External.MatchingInputValidation.result_canonical",
+        "Counting.External.CoverMachine.reduceCover_yes_iff",
+        "Counting.External.CoverMachine.machineGenerator_computesCleanIn",
+        "Counting.External.CoverMachine.ThreeDM_reduces_X3C",
+        "Counting.External.CoverMachine.X3C_NPHard"
+      ],
+      "source_role": "external_dependency"
+    },
+    {
+      "id": "x3c-np-complete",
+      "title": "X3C NP-completeness for explicit-universe binary encoding",
+      "kind": "external_dependency",
+      "area": "external",
+      "status": "verified",
+      "statement": "X3C is NP-complete for the explicit-universe binary input convention used by the paper reductions.",
+      "sources": [
+        {
+          "context_label": "app:conp-hardness"
+        },
+        {
+          "context_label": "sec:conp-hardness"
+        }
+      ],
+      "dependencies": [
+        "matching-to-x3c",
+        "machine-arithmetic"
+      ],
+      "lean_declarations": [
+        "Counting.External.CoverMachine.X3C_NPComplete"
+      ],
+      "source_role": "external_dependency"
+    },
+    {
+      "id": "flat-level",
+      "title": "Flat level",
+      "kind": "numbered",
+      "area": "algebra",
+      "status": "verified",
+      "statement": "Let \\(\\mathcal L_r\\) be a full and flat level of a vista, with\n\\(r\\geq1\\).  The flow equations on \\(\\mathcal L_r\\), together with \\(\\ell\\),\nuniquely determine the anonymities of the nodes of \\(\\mathcal L_r\\).\\qed",
+      "sources": [
+        {
+          "excerpt": "\\begin{lemma}\n\\label{lem:flat-anonymities}\nLet \\(\\mathcal L_r\\) be a full and flat level of a vista, with\n\\(r\\geq1\\).  The flow equations on \\(\\mathcal L_r\\), together with \\(\\ell\\),\nuniquely determine the anonymities of the nodes of \\(\\mathcal L_r\\).\\qed\n\\end{lemma}"
+        },
+        {
+          "excerpt": "\\begin{lemma}\nLet \\(\\mathcal L_r\\) be a full and flat level of a vista, with\n\\(r\\geq1\\).  The flow equations on \\(\\mathcal L_r\\), together with \\(\\ell\\),\nuniquely determine the anonymities of the nodes of \\(\\mathcal L_r\\).\n\\end{lemma}"
+        }
+      ],
+      "dependencies": [
+        "positive-kernel",
+        "leader-normalization",
+        "h3-flow"
+      ],
+      "lean_declarations": [
+        "Counting.FlatHistory.flat_iff_unique_child",
+        "Counting.FlatHistory.flat_level_unique_solution"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "credit-refinement",
+      "title": "Credit under refinement",
+      "kind": "numbered",
+      "area": "algorithm",
+      "status": "verified",
+      "statement": "Let \\(v_1,\\ldots,v_k\\) be the children of\n\\(u\\in\\mathcal L_{r-1}\\) in \\(\\mathcal L_r\\).\nThen \\(\\sum_{i=1}^k c(v_i)\\leq c(u)\\).\nIf equality holds and \\(\\anon(v_j)\\leq\\cand(v_j)\\) for some child $v_j$,\nthen \\(u\\) has exactly one child \\(v_1\\); moreover,\n\\(\\agents(v_1)=\\agents(u)\\) and \\(\\cand(v_1)=\\cand(u)\\).",
+      "sources": [
+        {
+          "excerpt": "\\begin{lemma}\n\\label{lem:credit-refinement-split}\nLet \\(v_1,\\ldots,v_k\\) be the children of\n\\(u\\in\\mathcal L_{r-1}\\) in \\(\\mathcal L_r\\).\nThen \\(\\sum_{i=1}^k c(v_i)\\leq c(u)\\).\nIf equality holds and \\(\\anon(v_j)\\leq\\cand(v_j)\\) for some child $v_j$,\nthen \\(u\\) has exactly one child \\(v_1\\); moreover,\n\\(\\agents(v_1)=\\agents(u)\\) and \\(\\cand(v_1)=\\cand(u)\\).\n\\end{lemma}"
+        }
+      ],
+      "dependencies": [
+        "h1-refinement",
+        "candidate-conservation"
+      ],
+      "lean_declarations": [
+        "Counting.CreditHistory.credit_under_refinement",
+        "Counting.CreditHistory.credit_refinement_rigidity"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "minimum-ratio-closure",
+      "title": "Minimum-ratio closure",
+      "kind": "numbered",
+      "area": "algorithm",
+      "status": "verified",
+      "statement": "If \\(\\bigcup_{u\\in\\mathcal Q}\\agents(u)\n=\\bigcup_{v\\in\\mathcal D}\\agents(v)\\),\nthen \\(\\mathcal L_r\\) is full and every node in it has ratio\n\\(\\alpha\\).",
+      "sources": [
+        {
+          "excerpt": "\\begin{lemma}\n\\label{lem:minimum-ratio-closure-split}\nIf \\(\\bigcup_{u\\in\\mathcal Q}\\agents(u)\n=\\bigcup_{v\\in\\mathcal D}\\agents(v)\\),\nthen \\(\\mathcal L_r\\) is full and every node in it has ratio\n\\(\\alpha\\).\n\\end{lemma}"
+        }
+      ],
+      "dependencies": [
+        "h3-flow",
+        "candidate-conservation",
+        "model-network"
+      ],
+      "lean_declarations": [
+        "Counting.CreditHistory.parent_closed_of_equal_fiber_unions",
+        "Counting.CreditHistory.minimum_ratio_closure"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "credit-loss",
+      "title": "Credit loss",
+      "kind": "numbered",
+      "area": "algorithm",
+      "status": "verified",
+      "statement": "For every \\(1\\leq r\\leq h\\),\n\\(\\Phi_r\\leq\\Phi_{r-1}\\).\nIf equality holds for any \\(r\\), then \\(m=n\\).",
+      "sources": [
+        {
+          "excerpt": "\\begin{lemma}\n\\label{lem:credit-loss-split}\nFor every \\(1\\leq r\\leq h\\),\n\\(\\Phi_r\\leq\\Phi_{r-1}\\).\nIf equality holds for any \\(r\\), then \\(m=n\\).\n\\end{lemma}"
+        }
+      ],
+      "dependencies": [
+        "credit-refinement",
+        "minimum-ratio-closure",
+        "candidate-conservation",
+        "h2-leaders"
+      ],
+      "lean_declarations": [
+        "Counting.CreditHistory.PrefixChecks.credit_loss"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "core-algorithm",
+      "title": "Core algorithm",
+      "kind": "numbered",
+      "area": "algorithm",
+      "status": "verified",
+      "statement": "For every \\(1\\leq\\ell\\leq n\\), the core algorithm makes all agents output \\(n\\)\nand halt at round \\(2n-1\\). All local computations take time polynomial in $n$ (assuming the network has at most \\(2^{\\rm{poly}(n)}\\) arcs per round).",
+      "sources": [
+        {
+          "excerpt": "\\begin{theorem}[Core algorithm]\n\\label{thm:one-leader}\nFor every \\(1\\leq\\ell\\leq n\\), the core algorithm makes all agents output \\(n\\)\nand halt at round \\(2n-1\\). All local computations take time polynomial in $n$ (assuming the network has at most \\(2^{\\rm{poly}(n)}\\) arcs per round).\n\\end{theorem}"
+        }
+      ],
+      "dependencies": [
+        "core-simultaneous",
+        "core-bit-cost"
+      ],
+      "lean_declarations": [
+        "Counting.TimingProtocol.core_solves_counting",
+        "Counting.TimingProtocol.core_simultaneous",
+        "Counting.Executable.executableCore_simultaneous",
+        "Counting.Executable.binary_core_network_at_stop",
+        "Counting.Paper.core_algorithm"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "exact-termination",
+      "title": "Exact termination time",
+      "kind": "numbered",
+      "area": "algorithm",
+      "status": "verified",
+      "statement": "The exact worst-case termination time for Counting is\n\\[\n T(n,\\ell)=\n \\begin{cases}\n  n&\\text{if }n=\\ell,\\\\\n  2n-1&\\text{if \\(n>\\ell\\) and \\(\\ell=1\\)},\\\\\n  2n-2&\\text{if \\(n>\\ell\\) and \\(\\ell\\geq2\\)}.\n \\end{cases}\n\\]\nAll local computations take time polynomial in $n$ (assuming the network has at most \\(2^{\\rm{poly}(n)}\\) arcs per round).\\qed",
+      "sources": [
+        {
+          "excerpt": "\\begin{theorem}\n\\label{thm:exact-termination}\nThe exact worst-case termination time for Counting is\n\\[\n T(n,\\ell)=\n \\begin{cases}\n  n&\\text{if }n=\\ell,\\\\\n  2n-1&\\text{if \\(n>\\ell\\) and \\(\\ell=1\\)},\\\\\n  2n-2&\\text{if \\(n>\\ell\\) and \\(\\ell\\geq2\\)}.\n \\end{cases}\n\\]\nAll local computations take time polynomial in $n$ (assuming the network has at most \\(2^{\\rm{poly}(n)}\\) arcs per round).\\qed\n\\end{theorem}"
+        }
+      ],
+      "dependencies": [
+        "optimized-simultaneous",
+        "lower-combined",
+        "core-bit-cost"
+      ],
+      "lean_declarations": [
+        "Counting.exact_termination_optimal",
+        "Counting.Executable.binary_network_at_stop",
+        "Counting.Executable.executable_solves_counting",
+        "Counting.Paper.exact_termination"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "vista-complete",
+      "title": "Vista recognition is coNP-complete",
+      "kind": "numbered",
+      "area": "complexity",
+      "status": "verified",
+      "statement": "\\textnormal{\\textsc{AtMostOneVista}} is \\(\\mathsf{coNP}\\)-complete.\nHardness holds even for realizable vistas with one leader.\\qed",
+      "sources": [
+        {
+          "excerpt": "\\begin{theorem}\n\\label{thm:main-conp-complete}\n\\textnormal{\\textsc{AtMostOneVista}} is \\(\\mathsf{coNP}\\)-complete.\nHardness holds even for realizable vistas with one leader.\\qed\n\\end{theorem}"
+        },
+        {
+          "excerpt": "\\begin{theorem}\n\\label{thm:conp-vista-complete}\n\\textnormal{\\textsc{AtMostOneVista}} is \\(\\mathsf{coNP}\\)-complete, even on realizable vistas with one leader.\n\\end{theorem}"
+        }
+      ],
+      "dependencies": [
+        "vista-membership",
+        "vista-hardness",
+        "complexity-complements"
+      ],
+      "lean_declarations": [
+        "Counting.HardnessVistaRaw.AtMostOneVista_coNPComplete",
+        "Counting.HardnessVistaRaw.AtMostOneVista_realizable_one_leader_hard"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "tail-exposure",
+      "title": "Tail exposure",
+      "kind": "numbered",
+      "area": "history",
+      "status": "verified",
+      "statement": "In a vista \\(\\mathcal V_t\\), the fibers of the nodes in\n\\(\\mathcal L_r\\), where \\(0\\leq r\\leq t\\), together contain at\nleast \\(\\min\\{n,t-r+1\\}\\) agents.",
+      "sources": [
+        {
+          "excerpt": "\\begin{lemma}\n\\label{lem:tail-exposure}\nIn a vista \\(\\mathcal V_t\\), the fibers of the nodes in\n\\(\\mathcal L_r\\), where \\(0\\leq r\\leq t\\), together contain at\nleast \\(\\min\\{n,t-r+1\\}\\) agents.\n\\end{lemma}"
+        }
+      ],
+      "dependencies": [
+        "causal-visibility",
+        "causal-expansion"
+      ],
+      "lean_declarations": [
+        "Counting.causalSupport_card_lower_bound",
+        "Counting.tail_exposure"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "forward-fibers",
+      "title": "Fibers inside a proper subset",
+      "kind": "numbered",
+      "area": "algorithm",
+      "status": "verified",
+      "statement": "Let \\(S\\subsetneq V\\) contain every leader. Suppose that, for each\n\\(1\\leq r\\leq h\\), every node in \\(\\mathcal H_{r-1}\\) whose fiber\nis contained in \\(S\\) has no outgoing arc from that fiber to\n\\(V\\setminus S\\) in round \\(r\\). Then \\(h\\leq |S|-\\ell\\).",
+      "sources": [
+        {
+          "excerpt": "\\begin{lemma}\n\\label{lem:forward-fibers}\nLet \\(S\\subsetneq V\\) contain every leader. Suppose that, for each\n\\(1\\leq r\\leq h\\), every node in \\(\\mathcal H_{r-1}\\) whose fiber\nis contained in \\(S\\) has no outgoing arc from that fiber to\n\\(V\\setminus S\\) in round \\(r\\). Then \\(h\\leq |S|-\\ell\\).\n\\end{lemma}"
+        }
+      ],
+      "dependencies": [
+        "model-network",
+        "history-refinement",
+        "h1-refinement",
+        "h2-leaders"
+      ],
+      "lean_declarations": [
+        "Counting.ForwardFibers.fibers_inside_proper_subset"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "short-audit",
+      "title": "Multi-leader test",
+      "kind": "numbered",
+      "area": "algorithm",
+      "status": "verified",
+      "statement": "For \\(\\ell\\geq2\\), this test rejects every candidate\n\\(\\ell<m<n\\) and accepts \\(m=n>\\ell\\) at round \\(2n-2\\).",
+      "sources": [
+        {
+          "excerpt": "\\begin{lemma}\n\\label{lem:multi-leader-test}\nFor \\(\\ell\\geq2\\), this test rejects every candidate\n\\(\\ell<m<n\\) and accepts \\(m=n>\\ell\\) at round \\(2n-2\\).\n\\end{lemma}"
+        }
+      ],
+      "dependencies": [
+        "short-flow-closure",
+        "forward-fibers",
+        "short-accept-true"
+      ],
+      "lean_declarations": [
+        "Counting.Executable.short_audit_reject_lt",
+        "Counting.Executable.short_audit_accept_true"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "two-center",
+      "title": "Two-center graph",
+      "kind": "numbered",
+      "area": "lower_bounds",
+      "status": "verified",
+      "statement": "Let \\(U,W\\) be disjoint nonempty sets of agents, with \\(|U|=\\ell\\).\nChoose \\(z\\in U\\), \\(z'\\in W\\), and \\(c\\in\\{1,\\ell\\}\\).\nAn arrow \\(X\\xrightarrow{d}Y\\) denotes \\(d\\) arcs from each agent of \\(X\\)\nto each agent of \\(Y\\); an agent may replace a singleton set.\nThe graph on \\(U\\cup W\\) consisting of exactly the arcs\n\\[\n z\\xrightarrow{c}W,\\qquad\n z'\\xrightarrow{1}U,\\qquad\n U\\setminus\\{z\\}\\xrightarrow{\\ell/c}z,\\qquad\n W\\setminus\\{z'\\}\\xrightarrow{\\ell}z\n\\]\nis loopless and strongly connected.\nEach agent of \\(U\\setminus\\{z\\}\\) receives only \\(z'\\)'s old vista and has\noutdegree \\(\\ell/c\\); each agent of \\(W\\) receives \\(c\\) copies of \\(z\\)'s\nold vista and has outdegree \\(\\ell\\).",
+      "sources": [
+        {
+          "excerpt": "\\begin{lemma}\\label{lem:two-center-graph}\nLet \\(U,W\\) be disjoint nonempty sets of agents, with \\(|U|=\\ell\\).\nChoose \\(z\\in U\\), \\(z'\\in W\\), and \\(c\\in\\{1,\\ell\\}\\).\nAn arrow \\(X\\xrightarrow{d}Y\\) denotes \\(d\\) arcs from each agent of \\(X\\)\nto each agent of \\(Y\\); an agent may replace a singleton set.\nThe graph on \\(U\\cup W\\) consisting of exactly the arcs\n\\[\n z\\xrightarrow{c}W,\\qquad\n z'\\xrightarrow{1}U,\\qquad\n U\\setminus\\{z\\}\\xrightarrow{\\ell/c}z,\\qquad\n W\\setminus\\{z'\\}\\xrightarrow{\\ell}z\n\\]\nis loopless and strongly connected.\nEach agent of \\(U\\setminus\\{z\\}\\) receives only \\(z'\\)'s old vista and has\noutdegree \\(\\ell/c\\); each agent of \\(W\\) receives \\(c\\) copies of \\(z\\)'s\nold vista and has outdegree \\(\\ell\\).\n\\end{lemma}"
+        }
+      ],
+      "dependencies": [
+        "model-network"
+      ],
+      "lean_declarations": [
+        "Counting.TwoCenter.loopless",
+        "Counting.TwoCenter.stronglyConnected",
+        "Counting.TwoCenter.left_incoming",
+        "Counting.TwoCenter.right_incoming",
+        "Counting.TwoCenter.left_outdegree",
+        "Counting.TwoCenter.right_outdegree"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "several-leader-vista",
+      "title": "Several-leader common vista",
+      "kind": "numbered",
+      "area": "lower_bounds",
+      "status": "verified",
+      "statement": "For every \\(n>\\ell\\ge2\\), there are dynamic networks of orders \\(n\\) and\n\\(n+\\ell-1\\), each with exactly \\(\\ell\\) leaders, whose designated leaders\nhave identical vistas through round \\(2n-3\\).\nEvery round graph is a strongly connected loopless directed multigraph,\nwith arc multiplicities at most \\(\\ell\\) and outdegrees at most \\(\\ell^2\\).",
+      "sources": [
+        {
+          "excerpt": "\\begin{theorem}\n\\label{thm:several-leader-vista}\nFor every \\(n>\\ell\\ge2\\), there are dynamic networks of orders \\(n\\) and\n\\(n+\\ell-1\\), each with exactly \\(\\ell\\) leaders, whose designated leaders\nhave identical vistas through round \\(2n-3\\).\nEvery round graph is a strongly connected loopless directed multigraph,\nwith arc multiplicities at most \\(\\ell\\) and outdegrees at most \\(\\ell^2\\).\n\\end{theorem}"
+        }
+      ],
+      "dependencies": [
+        "lower-phase-one",
+        "lower-phase-two",
+        "lower-initial-relays",
+        "lower-middle-relays",
+        "lower-final-cycle",
+        "lower-structural-bounds",
+        "vista-isomorphism"
+      ],
+      "lean_declarations": [
+        "Counting.LowerSeveral.several_leader_common_vista",
+        "Counting.LowerSeveral.endpoint_common_prefix",
+        "Counting.LowerSeveralExact.endpoint_first_difference",
+        "Counting.LowerSeveral.several_leader_vista",
+        "Counting.LowerSeveral.first_nonisomorphic_vistas"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "balanced-vertex",
+      "title": "Eliminating a balanced auxiliary vertex",
+      "kind": "numbered",
+      "area": "realizability",
+      "status": "verified",
+      "statement": "Let \\(D\\) be a directed multigraph on \\(V\\cup\\{z\\}\\), with\n\\(V\\neq\\varnothing\\).  Suppose every ordered pair of vertices in\n\\(V\\) is joined by a directed path, \\(z\\) has no loop, and\n\\(d^-(z)=d^+(z)\\).  The arcs at \\(z\\) can be paired so that replacing\neach pair \\(a\\to z\\to b\\) by \\(a\\to b\\) leaves a strongly\nconnected graph on \\(V\\).",
+      "sources": [
+        {
+          "excerpt": "\\begin{lemma}\n\\label{lem:conp-balanced-vertex}\nLet \\(D\\) be a directed multigraph on \\(V\\cup\\{z\\}\\), with\n\\(V\\neq\\varnothing\\).  Suppose every ordered pair of vertices in\n\\(V\\) is joined by a directed path, \\(z\\) has no loop, and\n\\(d^-(z)=d^+(z)\\).  The arcs at \\(z\\) can be paired so that replacing\neach pair \\(a\\to z\\to b\\) by \\(a\\to b\\) leaves a strongly\nconnected graph on \\(V\\).\n\\end{lemma}"
+        }
+      ],
+      "dependencies": [
+        "balanced-vertex-strong"
+      ],
+      "lean_declarations": [
+        "Counting.BalancedVertex.remaining_path_of_no_incoming",
+        "Counting.BalancedVertex.connected_of_remaining_reachable",
+        "Counting.BalancedVertex.eliminate_balanced_vertex_of_remaining_reachable",
+        "Counting.BalancedVertex.eliminate_at_vertex_of_remaining_reachable"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "fixed-order",
+      "title": "Fixed-order certificates",
+      "kind": "numbered",
+      "area": "realizability",
+      "status": "verified",
+      "statement": "Whether \\(N\\in\\operatorname{Spec}_{\\ell}(\\mathcal V)\\) is in\n\\(\\mathsf{NP}\\), with certificate length polynomial in\n\\(s+\\log N\\).",
+      "sources": [
+        {
+          "excerpt": "\\begin{lemma}\n\\label{lem:conp-fixed-order}\nWhether \\(N\\in\\operatorname{Spec}_{\\ell}(\\mathcal V)\\) is in\n\\(\\mathsf{NP}\\), with certificate length polynomial in\n\\(s+\\log N\\).\n\\end{lemma}"
+        }
+      ],
+      "dependencies": [
+        "certificate-necessary",
+        "certificate-sufficient",
+        "certificate-singleton",
+        "certificate-size-cost"
+      ],
+      "lean_declarations": [
+        "Counting.Realizability.fixed_order_iff_certificate",
+        "Counting.Realizability.Certificate.count_le_order",
+        "Counting.RealizabilityVerifier.exists_verified_iff",
+        "Counting.RealizabilityVerifier.exists_bounded_verified",
+        "Counting.Encoding.exists_encoded_bounded_certificate",
+        "Counting.Encoding.binaryFixedOrder_bounded_witnesses",
+        "Counting.StackMachine.FixedOrderRecognition.machine_computes",
+        "Counting.StackMachine.FixedOrderRecognition.BinaryFixedOrderRealizable_in_NP"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "bounded-orders",
+      "title": "Bounded compatible orders",
+      "kind": "numbered",
+      "area": "realizability",
+      "status": "verified",
+      "statement": "If \\(\\mathcal V\\) admits two different compatible orders, two\ncan be chosen at most \\(K+\\ell+2\\), with polynomial bit length\nin \\(s\\).",
+      "sources": [
+        {
+          "excerpt": "\\begin{lemma}\n\\label{lem:conp-bounded-orders}\nIf \\(\\mathcal V\\) admits two different compatible orders, two\ncan be chosen at most \\(K+\\ell+2\\), with polynomial bit length\nin \\(s\\).\n\\end{lemma}"
+        }
+      ],
+      "dependencies": [
+        "causal-support-bound",
+        "open-certificate-invariance",
+        "causal-bound-bitlength"
+      ],
+      "lean_declarations": [
+        "Counting.Realizability.bounded_compatible_orders",
+        "Counting.Encoding.vistaInput_parameters",
+        "Counting.Encoding.compatible_threshold_bits_encoded"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "pumping",
+      "title": "Pumping and eventual compatibility",
+      "kind": "numbered",
+      "area": "realizability",
+      "status": "verified",
+      "statement": "Let $\\mathcal V$ be a vista with $\\ell$ leaders. If it has a\nrealization of order $N$ whose observer has a proper initial causal\nsupport $\\Gamma_0\\ne V$, then\n\\[\n  \\{N,N+1,N+2,\\ldots\\}\\subseteq\n  \\operatorname{Spec}_{\\ell}(\\mathcal V).\n\\]\nMoreover, with $K=(1+\\nu M)^t$ as above, either all compatible orders\nare at most $K$, or there is an integer $N_*\\le K+\\ell+1$ such that\n\\[\n  \\{N_*,N_*+1,N_*+2,\\ldots\\}\\subseteq\n  \\operatorname{Spec}_{\\ell}(\\mathcal V).\n\\]\nIn particular, every order spectrum is finite or cofinite.",
+      "sources": [
+        {
+          "excerpt": "\\begin{corollary}\n\\label{cor:conp-pumping}\nLet $\\mathcal V$ be a vista with $\\ell$ leaders. If it has a\nrealization of order $N$ whose observer has a proper initial causal\nsupport $\\Gamma_0\\ne V$, then\n\\[\n  \\{N,N+1,N+2,\\ldots\\}\\subseteq\n  \\operatorname{Spec}_{\\ell}(\\mathcal V).\n\\]\nMoreover, with $K=(1+\\nu M)^t$ as above, either all compatible orders\nare at most $K$, or there is an integer $N_*\\le K+\\ell+1$ such that\n\\[\n  \\{N_*,N_*+1,N_*+2,\\ldots\\}\\subseteq\n  \\operatorname{Spec}_{\\ell}(\\mathcal V).\n\\]\nIn particular, every order spectrum is finite or cofinite.\n\\end{corollary}"
+        }
+      ],
+      "dependencies": [
+        "pumping-from-order",
+        "finite-or-cofinite"
+      ],
+      "lean_declarations": [
+        "Counting.Realizability.pumping_of_open_realization",
+        "Counting.Realizability.bounded_or_eventual",
+        "Counting.Realizability.spectrum_finite_or_cofinite"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "vista-membership",
+      "title": "Vista recognition is in coNP",
+      "kind": "numbered",
+      "area": "complexity",
+      "status": "verified",
+      "statement": "In the model of \\Cref{sec:model}, \\textnormal{\\textsc{AtMostOneVista}}\nbelongs to \\(\\mathsf{coNP}\\).",
+      "sources": [
+        {
+          "excerpt": "\\begin{theorem}\n\\label{thm:conp-vista-membership}\nIn the model of \\Cref{sec:model}, \\textnormal{\\textsc{AtMostOneVista}}\nbelongs to \\(\\mathsf{coNP}\\).\n\\end{theorem}"
+        }
+      ],
+      "dependencies": [
+        "fixed-order",
+        "bounded-orders",
+        "causal-bound-bitlength",
+        "complexity-complements"
+      ],
+      "lean_declarations": [
+        "Counting.Realizability.not_atMostOne_iff_certificates",
+        "Counting.Realizability.vista_complement_polynomial_witnesses",
+        "Counting.Encoding.binaryVista_complement_iff",
+        "Counting.StackMachine.VistaComplement.machine_computes",
+        "Counting.StackMachine.VistaComplement.BinaryAtMostOneVista_in_coNP"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "network-membership",
+      "title": "Network recognition is in coNP",
+      "kind": "numbered",
+      "area": "complexity",
+      "status": "verified",
+      "statement": "\\textnormal{\\textsc{SomeAgentKnows}} belongs to \\(\\mathsf{coNP}\\).",
+      "sources": [
+        {
+          "excerpt": "\\begin{theorem}\n\\label{thm:conp-network-membership}\n\\textnormal{\\textsc{SomeAgentKnows}} belongs to \\(\\mathsf{coNP}\\).\n\\end{theorem}"
+        }
+      ],
+      "dependencies": [
+        "network-complement-certificate",
+        "certificate-size-cost",
+        "causal-bound-bitlength",
+        "complexity-complements"
+      ],
+      "lean_declarations": [
+        "Counting.Realizability.not_someAgentKnows_iff_invalid_or_certificates",
+        "Counting.Realizability.network_complement_payload_polynomial",
+        "Counting.Encoding.binaryNetwork_complement_iff",
+        "Counting.StackMachine.NetworkRecognition.networkValidationMachine_concrete",
+        "Counting.StackMachine.NetworkRecognition.validNetworkWord_eq_decodeNetwork",
+        "Counting.StackMachine.NetworkRecognition.admissibleNetworkLanguage_in_P",
+        "Counting.StackMachine.NetworkComplement.BinarySomeAgentKnows_in_coNP",
+        "Counting.StackMachine.NetworkComplement.machine_computes",
+        "Counting.NetworkCertificate.binaryRawNetwork_complement_iff"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "x3c-digits",
+      "title": "One reference solution, or an exact cover",
+      "kind": "numbered",
+      "area": "hardness",
+      "status": "verified",
+      "statement": "For nonnegative integers \\(x_0,\\ldots,x_m\\), the equation\n\\begin{equation}\n A x_0+\\sum_{j=1}^m c_jx_j=A\n \\label{eq:target}\n\\end{equation}\nhas the reference solution \\(x_0=1,\\ x_1=\\cdots=x_m=0\\).\nEvery other solution has \\(x_0=0\\), and its nonzero coordinates\n\\(x_j\\) select an exact cover. Conversely, every exact cover gives\nsuch a solution. In every solution,\n\\(\\sum_{i=0}^m x_i\\leq q\\).",
+      "sources": [
+        {
+          "excerpt": "\\begin{lemma}\n\\label{lem:conp-digits}\nFor nonnegative integers \\(x_0,\\ldots,x_m\\), the equation\n\\begin{equation}\n A x_0+\\sum_{j=1}^m c_jx_j=A\n \\label{eq:target}\n\\end{equation}\nhas the reference solution \\(x_0=1,\\ x_1=\\cdots=x_m=0\\).\nEvery other solution has \\(x_0=0\\), and its nonzero coordinates\n\\(x_j\\) select an exact cover. Conversely, every exact cover gives\nsuch a solution. In every solution,\n\\(\\sum_{i=0}^m x_i\\leq q\\).\n\\end{lemma}"
+        }
+      ],
+      "dependencies": [
+        "x3c-no-carries"
+      ],
+      "lean_declarations": [
+        "Counting.X3C.Instance.baseline_solution",
+        "Counting.X3C.Instance.solution_iff",
+        "Counting.X3C.Instance.option_coordinate_sum_le",
+        "Counting.X3C.Instance.nonbaseline_solution_iff_exactCover"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "path-prefix",
+      "title": "Common path prefix",
+      "kind": "numbered",
+      "area": "hardness",
+      "status": "verified",
+      "statement": "For any sizes \\(a_i\\geq B\\) with \\(\\sum_i c_i a_i=C\\), the labeled\nhistory-tree prefix through round \\(B-1\\), without fiber\ncardinalities, is the same.\nAfter round \\(r\\), for \\(1\\leq r\\leq B-1\\), group \\(i\\) has\nthe \\(r\\) singleton classes\n\\[\n \\{x_{i,1}\\},\\ldots,\\{x_{i,r}\\}\n\\]\nand the single nonempty suffix class\n\\(\\{x_{i,r+1},\\ldots,x_{i,a_i}\\}\\).\nAll groups have distinct histories.",
+      "sources": [
+        {
+          "excerpt": "\\begin{lemma}\n\\label{lem:conp-path-prefix}\nFor any sizes \\(a_i\\geq B\\) with \\(\\sum_i c_i a_i=C\\), the labeled\nhistory-tree prefix through round \\(B-1\\), without fiber\ncardinalities, is the same.\nAfter round \\(r\\), for \\(1\\leq r\\leq B-1\\), group \\(i\\) has\nthe \\(r\\) singleton classes\n\\[\n \\{x_{i,1}\\},\\ldots,\\{x_{i,r}\\}\n\\]\nand the single nonempty suffix class\n\\(\\{x_{i,r+1},\\ldots,x_{i,a_i}\\}\\).\nAll groups have distinct histories.\n\\end{lemma}"
+        }
+      ],
+      "dependencies": [
+        "path-graph-valid",
+        "vista-isomorphism",
+        "x3c-coefficients"
+      ],
+      "lean_declarations": [
+        "Counting.HardnessPath.path_histories",
+        "Counting.HardnessPath.physical_member_partition",
+        "Counting.HardnessPath.physical_member_ne_leader",
+        "Counting.HardnessPath.common_path_prefix"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "first-exhaustive",
+      "title": "The first visible level is full",
+      "kind": "numbered",
+      "area": "hardness",
+      "status": "verified",
+      "statement": "In every realization of \\(\\mathcal V\\), \\(S_1=V\\).",
+      "sources": [
+        {
+          "excerpt": "\\begin{lemma}\n\\label{lem:conp-first-full}\nIn every realization of \\(\\mathcal V\\), \\(S_1=V\\).\n\\end{lemma}"
+        }
+      ],
+      "dependencies": [
+        "visible-set-bounds",
+        "model-network",
+        "causal-visibility"
+      ],
+      "lean_declarations": [
+        "Counting.HardnessVisible.first_level_exhaustive"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "network-complete",
+      "title": "Network recognition is coNP-complete",
+      "kind": "numbered",
+      "area": "complexity",
+      "status": "verified",
+      "statement": "\\textnormal{\\textsc{SomeAgentKnows}} is \\(\\mathsf{coNP}\\)-complete, even for one-leader inputs whose round graphs\nare loopless.",
+      "sources": [
+        {
+          "excerpt": "\\begin{theorem}\n\\label{thm:conp-network-complete}\n\\textnormal{\\textsc{SomeAgentKnows}} is \\(\\mathsf{coNP}\\)-complete, even for one-leader inputs whose round graphs\nare loopless.\n\\end{theorem}"
+        }
+      ],
+      "dependencies": [
+        "network-membership",
+        "network-hardness",
+        "complexity-complements"
+      ],
+      "lean_declarations": [
+        "Counting.NetworkComplement.SomeAgentKnows_coNPComplete",
+        "Counting.NetworkComplement.SomeAgentKnows_one_leader_loopless_hard"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "balanced-vertex-strong",
+      "title": "Balanced-vertex elimination under whole-graph strong connectivity",
+      "kind": "implementation",
+      "area": "realizability",
+      "status": "verified",
+      "statement": "Let \\(D\\) be a strongly connected directed multigraph, and let\n\\(z\\) be a loopless vertex with equal indegree and outdegree. If at least one other vertex\nexists, the arcs at \\(z\\) can be paired into paths \\(a\\to z\\to b\\)\nand replaced by arcs \\(a\\to b\\) so that \\(D-z\\) remains strongly\nconnected.",
+      "sources": [],
+      "dependencies": [
+        "model-network"
+      ],
+      "lean_declarations": [
+        "Counting.BalancedVertex.eliminate_at_vertex",
+        "Counting.BalancedVertex.eliminate_balanced_vertex",
+        "Counting.BalancedVertex.exists_connected_pairing"
+      ],
+      "source_role": "supporting_formalization",
+      "supporting_role": "Whole-graph connectivity form of balanced-vertex elimination used by the realization constructions."
+    },
+    {
+      "id": "full-transition-realizability",
+      "title": "Realizing a transition",
+      "kind": "numbered",
+      "area": "realizability",
+      "status": "verified",
+      "statement": "Let \\(\\mathcal T_{r-1},\\mathcal T_r\\) be the old and new node sets\nof a proposed full history-tree prefix, with parent map\n\\(\\pi:\\mathcal T_r\\to\\mathcal T_{r-1}\\).  New node \\(v\\) has\nanonymity \\(\\anon(v)\\geq1\\) and outdegree \\(d(v)\\).  Each agent in\nits fiber must receive \\(\\mu(u,v)\\) arcs from the fiber of old\nnode \\(u\\).  Assume the flow equations\n\\begin{equation}\n \\sum_{v:\\pi(v)=u}\\anon(v)d(v)\n =\\sum_{w\\in\\mathcal T_r}\\anon(w)\\mu(u,w)\n \\qquad(u\\in\\mathcal T_{r-1}).\n \\label{eq:conp-full-flow}\n\\end{equation}\nPut \\(N=\\sum_v \\anon(v)\\).  For \\(N>1\\), these data have a strongly\nconnected round realization exactly when every new node has positive\noutdegree and positive incoming degree, and the digraph on\n\\(\\mathcal T_r\\) with arcs\n\\(v\\to w\\) whenever \\(d(v)>0\\) and \\(\\mu(\\pi(v),w)>0\\)\nis strongly connected.  For \\(N=1\\), balance alone suffices.",
+      "sources": [
+        {
+          "excerpt": "\\begin{lemma}\n\\label{lem:conp-transition}\nLet \\(\\mathcal T_{r-1},\\mathcal T_r\\) be the old and new node sets\nof a proposed full history-tree prefix, with parent map\n\\(\\pi:\\mathcal T_r\\to\\mathcal T_{r-1}\\).  New node \\(v\\) has\nanonymity \\(\\anon(v)\\geq1\\) and outdegree \\(d(v)\\).  Each agent in\nits fiber must receive \\(\\mu(u,v)\\) arcs from the fiber of old\nnode \\(u\\).  Assume the flow equations\n\\begin{equation}\n \\sum_{v:\\pi(v)=u}\\anon(v)d(v)\n =\\sum_{w\\in\\mathcal T_r}\\anon(w)\\mu(u,w)\n \\qquad(u\\in\\mathcal T_{r-1}).\n \\label{eq:conp-full-flow}\n\\end{equation}\nPut \\(N=\\sum_v \\anon(v)\\).  For \\(N>1\\), these data have a strongly\nconnected round realization exactly when every new node has positive\noutdegree and positive incoming degree, and the digraph on\n\\(\\mathcal T_r\\) with arcs\n\\(v\\to w\\) whenever \\(d(v)>0\\) and \\(\\mu(\\pi(v),w)>0\\)\nis strongly connected.  For \\(N=1\\), balance alone suffices.\n\\end{lemma}"
+        }
+      ],
+      "dependencies": [
+        "model-network",
+        "certificate-elimination"
+      ],
+      "lean_declarations": [
+        "Counting.FullTransition.agents_fiber_card",
+        "Counting.FullTransition.agents_card",
+        "Counting.FullTransition.agents_represented",
+        "Counting.FullTransition.Data.Realizes.arc_of_positive",
+        "Counting.FullTransition.Data.Realizes.node_connected",
+        "Counting.FullTransition.Data.Realizes.necessary",
+        "Counting.FullTransition.Data.red_zero_of_unoccupied",
+        "Counting.FullTransition.Data.expanded_outdegree",
+        "Counting.FullTransition.Data.expanded_receipts",
+        "Counting.FullTransition.Data.aux_successor",
+        "Counting.FullTransition.Data.nonempty_node_path",
+        "Counting.FullTransition.Data.expanded_lift_edge",
+        "Counting.FullTransition.Data.expanded_connected",
+        "Counting.FullTransition.Data.sufficient",
+        "Counting.FullTransition.Data.singleton",
+        "Counting.FullTransition.Data.realizable_iff",
+        "Counting.FullTransition.Data.weightedFlow_iff",
+        "Counting.FullTransition.Data.realizing_transition",
+        "Counting.FullTransition.Data.realizing_transition_singleton"
+      ],
+      "source_role": "paper_claim"
+    },
+    {
+      "id": "small-full-prefix",
+      "title": "Small full prefix",
+      "kind": "numbered",
+      "area": "realizability",
+      "status": "verified",
+      "statement": "If \\(\\mathcal V\\) has a realization of order \\(N\\), it has one\nof the same order and leader count whose full levels\n\\(\\mathcal T_0,\\ldots,\\mathcal T_t\\) satisfy\n\\[\n |\\mathcal T_r|\\leq\\sum_{j=0}^r|\\mathcal L_j|+r+2.\n\\]\nIts anonymities, outdegrees, and multiplicities have\n\\(O(s+\\log N)\\) bits.  The entire full-prefix description has\nlength polynomial in \\(s+\\log N\\).",
+      "sources": [
+        {
+          "excerpt": "\\begin{lemma}\n\\label{lem:conp-normal-form}\nIf \\(\\mathcal V\\) has a realization of order \\(N\\), it has one\nof the same order and leader count whose full levels\n\\(\\mathcal T_0,\\ldots,\\mathcal T_t\\) satisfy\n\\[\n |\\mathcal T_r|\\leq\\sum_{j=0}^r|\\mathcal L_j|+r+2.\n\\]\nIts anonymities, outdegrees, and multiplicities have\n\\(O(s+\\log N)\\) bits.  The entire full-prefix description has\nlength polynomial in \\(s+\\log N\\).\n\\end{lemma}"
+        }
+      ],
+      "dependencies": [
+        "model-network",
+        "history-fibers",
+        "history-labels",
+        "vista-isomorphism",
+        "vista-syntax",
+        "causal-bound-bitlength"
+      ],
+      "lean_declarations": [
+        "Counting.SmallPrefix.kept_add_lost",
+        "Counting.SmallPrefix.normalize_visible",
+        "Counting.SmallPrefix.normalize_row",
+        "Counting.SmallPrefix.normalize_visible_degree",
+        "Counting.SmallPrefix.normalize_hidden_degree",
+        "Counting.SmallPrefix.normalize_hidden_column",
+        "Counting.SmallPrefix.normalize_hidden_incoming",
+        "Counting.SmallPrefix.normalize_connected",
+        "Counting.SmallPrefix.normalize_hub_degree_le",
+        "Counting.SmallPrefix.kept_le",
+        "Counting.SmallPrefix.step_visible",
+        "Counting.SmallPrefix.step_visible_degree",
+        "Counting.SmallPrefix.step_connected",
+        "Counting.SmallPrefix.step_degree_bound",
+        "Counting.SmallPrefix.step_card",
+        "Counting.SmallPrefix.mem_visibleAgents",
+        "Counting.SmallPrefix.edge_le_receipt",
+        "Counting.SmallPrefix.visible_source",
+        "Counting.SmallPrefix.visible_edge_bound",
+        "Counting.SmallPrefix.visible_degree_bound",
+        "Counting.SmallPrefix.network_admissible",
+        "Counting.SmallPrefix.network_history_visible",
+        "Counting.SmallPrefix.network_observer",
+        "Counting.SmallPrefix.network_level_step",
+        "Counting.SmallPrefix.network_level_bound",
+        "Counting.SmallPrefix.network_degree_bound",
+        "Counting.SmallPrefix.degreeBound_le",
+        "Counting.SmallPrefix.labelCap_bounds",
+        "Counting.SmallPrefix.labelCap_size",
+        "Counting.SmallPrefix.anonymity_le",
+        "Counting.SmallPrefix.network_degree_label",
+        "Counting.SmallPrefix.network_red_label",
+        "Counting.SmallPrefix.network_labels",
+        "Counting.SmallPrefix.depth_le_nodeCount",
+        "Counting.SmallPrefix.network_level_uniform",
+        "Counting.SmallPrefix.table_roundtrip",
+        "Counting.SmallPrefix.fullLevel_list_nodup",
+        "Counting.SmallPrefix.parent_in_fullLevel",
+        "Counting.SmallPrefix.red_outside_fullLevel",
+        "Counting.SmallPrefix.parent_index_correct",
+        "Counting.SmallPrefix.table_level",
+        "Counting.SmallPrefix.list_encoded_bound",
+        "Counting.SmallPrefix.table_bits_bound",
+        "Counting.SmallPrefix.fullLevel_card",
+        "Counting.SmallPrefix.anonymity_nodeHistory",
+        "Counting.SmallPrefix.network_spec",
+        "Counting.SmallPrefix.small_full_prefix",
+        "Counting.SmallPrefix.tableBudget_polynomial",
+        "Counting.SmallPrefix.encoded_small_full_prefix"
+      ],
+      "source_role": "paper_claim"
+    }
+  ]
+}

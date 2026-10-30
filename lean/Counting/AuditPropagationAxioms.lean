@@ -1,0 +1,8 @@
+import Counting.MachineAuditPropagation
+
+#print axioms Counting.StackMachine.AuditPropagation.propagatePrepared_executes
+#print axioms Counting.StackMachine.AuditPropagation.finishPropagation_executes
+#print axioms Counting.StackMachine.AuditPropagation.completePropagation_executes
+#print axioms Counting.StackMachine.AuditPropagation.propagationBudget_polynomial
+#print axioms Counting.StackMachine.AuditPropagation.completePropagation_polynomial
+#print axioms Counting.Machine.auditPropagation_clean

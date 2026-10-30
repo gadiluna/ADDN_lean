@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "claims": [
+    {
+      "id": "flat-level",
+      "proofs": [
+        "Counting.FlatHistory.flat_level_unique_solution"
+      ]
+    },
+    {
+      "id": "credit-refinement",
+      "proofs": [
+        "Counting.CreditHistory.credit_under_refinement",
+        "Counting.CreditHistory.credit_refinement_rigidity"
+      ]
+    },
+    {
+      "id": "minimum-ratio-closure",
+      "proofs": [
+        "Counting.CreditHistory.parent_closed_of_equal_fiber_unions",
+        "Counting.CreditHistory.minimum_ratio_closure"
+      ]
+    },
+    {
+      "id": "credit-loss",
+      "proofs": [
+        "Counting.CreditHistory.PrefixChecks.credit_loss"
+      ]
+    },
+    {
+      "id": "core-algorithm",
+      "proofs": [
+        "Counting.Paper.core_algorithm"
+      ]
+    },
+    {
+      "id": "exact-termination",
+      "proofs": [
+        "Counting.Paper.exact_termination"
+      ]
+    },
+    {
+      "id": "tail-exposure",
+      "proofs": [
+        "Counting.tail_exposure"
+      ]
+    },
+    {
+      "id": "forward-fibers",
+      "proofs": [
+        "Counting.ForwardFibers.fibers_inside_proper_subset"
+      ]
+    },
+    {
+      "id": "short-audit",
+      "proofs": [
+        "Counting.Executable.short_audit_reject_lt",
+        "Counting.Executable.short_audit_accept_true"
+      ]
+    },
+    {
+      "id": "two-center",
+      "proofs": [
+        "Counting.TwoCenter.loopless",
+        "Counting.TwoCenter.stronglyConnected",
+        "Counting.TwoCenter.left_incoming",
+        "Counting.TwoCenter.right_incoming",
+        "Counting.TwoCenter.left_outdegree",
+        "Counting.TwoCenter.right_outdegree"
+      ]
+    },
+    {
+      "id": "several-leader-vista",
+      "proofs": [
+        "Counting.LowerSeveral.several_leader_vista"
+      ]
+    },
+    {
+      "id": "bounded-orders",
+      "proofs": [
+        "Counting.Realizability.bounded_compatible_orders",
+        "Counting.Encoding.compatible_threshold_bits_encoded"
+      ]
+    },
+    {
+      "id": "pumping",
+      "proofs": [
+        "Counting.Realizability.pumping_of_open_realization",
+        "Counting.Realizability.bounded_or_eventual",
+        "Counting.Realizability.spectrum_finite_or_cofinite"
+      ]
+    },
+    {
+      "id": "balanced-vertex",
+      "proofs": [
+        "Counting.BalancedVertex.eliminate_at_vertex_of_remaining_reachable"
+      ]
+    },
+    {
+      "id": "full-transition-realizability",
+      "proofs": [
+        "Counting.FullTransition.Data.realizing_transition",
+        "Counting.FullTransition.Data.realizing_transition_singleton"
+      ]
+    },
+    {
+      "id": "small-full-prefix",
+      "proofs": [
+        "Counting.SmallPrefix.small_full_prefix",
+        "Counting.SmallPrefix.encoded_small_full_prefix"
+      ]
+    },
+    {
+      "id": "fixed-order",
+      "proofs": [
+        "Counting.Realizability.fixed_order_iff_certificate",
+        "Counting.Encoding.binaryFixedOrder_bounded_witnesses",
+        "Counting.StackMachine.FixedOrderRecognition.BinaryFixedOrderRealizable_in_NP"
+      ]
+    },
+    {
+      "id": "vista-complete",
+      "proofs": [
+        "Counting.HardnessVistaRaw.AtMostOneVista_coNPComplete",
+        "Counting.HardnessVistaRaw.AtMostOneVista_realizable_one_leader_hard"
+      ]
+    },
+    {
+      "id": "vista-membership",
+      "proofs": [
+        "Counting.StackMachine.VistaComplement.BinaryAtMostOneVista_in_coNP"
+      ]
+    },
+    {
+      "id": "network-membership",
+      "proofs": [
+        "Counting.StackMachine.NetworkComplement.BinarySomeAgentKnows_in_coNP"
+      ]
+    },
+    {
+      "id": "x3c-digits",
+      "proofs": [
+        "Counting.X3C.Instance.baseline_solution",
+        "Counting.X3C.Instance.solution_iff",
+        "Counting.X3C.Instance.nonbaseline_solution_iff_exactCover",
+        "Counting.X3C.Instance.option_coordinate_sum_le"
+      ]
+    },
+    {
+      "id": "path-prefix",
+      "proofs": [
+        "Counting.HardnessPath.common_path_prefix",
+        "Counting.HardnessPath.physical_member_partition",
+        "Counting.HardnessPath.physical_member_ne_leader"
+      ]
+    },
+    {
+      "id": "first-exhaustive",
+      "proofs": [
+        "Counting.HardnessVisible.first_level_exhaustive"
+      ]
+    },
+    {
+      "id": "network-complete",
+      "proofs": [
+        "Counting.NetworkComplement.SomeAgentKnows_coNPComplete",
+        "Counting.NetworkComplement.SomeAgentKnows_one_leader_loopless_hard"
+      ]
+    }
+  ]
+}

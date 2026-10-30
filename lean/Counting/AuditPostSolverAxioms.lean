@@ -1,0 +1,8 @@
+import Counting.MachineAuditPostSolver
+
+#print axioms Counting.StackMachine.AuditPostSolver.auditSuffix_after_result
+#print axioms Counting.StackMachine.AuditPostSolver.historyInput_executes
+#print axioms Counting.StackMachine.AuditPostSolver.success_executes
+#print axioms Counting.StackMachine.AuditPostSolver.complete_executes
+#print axioms Counting.StackMachine.AuditPostSolver.completeBudget_polynomial
+#print axioms Counting.Machine.auditPostSolver_clean
