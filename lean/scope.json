@@ -1,0 +1,10 @@
+{
+  "schema_version": 4,
+  "completion_target": "formal_statements",
+  "clause_coverage": "all",
+  "default_mode": "whole_verified_statement",
+  "registry_content": "formal_statements_and_required_dependencies",
+  "review_record": "docs/VALIDATION.md",
+  "overrides": {},
+  "paper_title": "Computation in Anonymous Directed Dynamic Networks: Exact Worst-Case Termination Time and Network-Wise Intractability"
+}

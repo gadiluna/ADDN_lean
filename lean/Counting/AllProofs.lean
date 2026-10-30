@@ -1,0 +1,45 @@
+import Counting
+import Counting.AuditPrefixRoundSpec
+import Counting.DagCanonicalRecordsSpec
+import Counting.NetworkComplementWitness
+import Counting.NetworkVistaCollectActual
+import Counting.StackAnchorMatrixLeader
+import Counting.StackAuditDescendantOuterItem
+import Counting.StackAuditDescendantRounds
+import Counting.StackAuditPrefixRoundBounds
+import Counting.StackDagSortInsertionBounds
+import Counting.StackDagSortQuery
+import Counting.StackEmitMachine
+import Counting.DagCanonicalBySize
+import Counting.MachineAuditCompletePhysical
+import Counting.MachineAuditPrefixPhysical
+import Counting.MachineDagSortComplete
+import Counting.MachineNetworkCertificate
+import Counting.MachineProtocolAudit
+import Counting.MachineProtocolSchedule
+import Counting.MachineVistaFirst
+import Counting.MachineVistaMessages
+import Counting.MachineVistaRaw
+import Counting.NetworkCertificateExamples
+import Counting.NetworkCertificateLanguage
+import Counting.NetworkComplementExamples
+import Counting.NetworkVistaRunRound
+import Counting.StackDagCanonicalCommitLoopPolynomial
+import Counting.StackMachineTestSparse
+import Counting.StackProtocolAuditRefinement
+import Counting.HardnessVistaRawComplete
+import Counting.NetworkComplementComplete
+import Counting.StackDagCanonicalInitialize
+import Counting.StackDagCanonicalOutput
+import Counting.MachineDagCanonicalComplete
+import Counting.MachineCountingDecisionPhysical
+import Counting.MachineAuditDescendant
+import Counting.StackCoreAuditRefinement
+import Counting.MachineProtocolInitialize
+import Counting.MachineProtocolUpdate
+import Counting.MachineProtocolVista
+import Counting.PaperFormalCounting
+
+/-! Whole-source verification aggregate. In addition to the paper's proof closure,
+include the independent supporting developments so they cannot silently escape
+the project build and axiom audit. Executable test entry points are run separately. -/

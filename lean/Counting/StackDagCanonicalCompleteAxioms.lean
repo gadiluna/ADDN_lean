@@ -1,0 +1,3 @@
+import Counting.MachineDagCanonicalComplete
+#print axioms Counting.StackMachine.DagUpdate.Canonical.completeCanonical_executes
+#print axioms Counting.Machine.canonicalDag_clean

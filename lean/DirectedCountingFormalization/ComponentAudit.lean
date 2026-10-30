@@ -1,0 +1,16 @@
+import DirectedCountingFormalization
+import DirectedCountingFormalization.ComponentTests
+
+#print axioms DirectedCounting.PaperHistory.fibers_pairwiseDisjoint
+#print axioms DirectedCounting.PaperHistory.visible_mass_eq_iff_exhaustive
+#print axioms DirectedCounting.PaperHistory.children_mass_eq_iff
+#print axioms DirectedCounting.PaperHistory.label_parent
+#print axioms DirectedCounting.PaperHistory.label_mass_eq
+#print axioms DirectedCounting.PaperHistory.flow_balance
+#print axioms DirectedCounting.directed_flooding
+#print axioms DirectedCounting.exists_cross_multigraph_match_of_equal_roots
+#print axioms DirectedCounting.multigraphReferenceClassMass_conserve
+#print axioms DirectedCounting.VerifiedGaussianAnchorSolver.RationalSystem.solve?_sound
+#print axioms DirectedCounting.GaussianGeneratorCompleteness.generatorCompleteFor_of_coeff_mulVec_injective
+#print axioms DirectedCounting.GaussianGeneratorCompleteness.solveAnchorNat?_eq_some
+#print axioms DirectedCounting.VerifiedGaussianAnchorSolver.RationalSystem.gaussianFieldOperationBound_le_cubic

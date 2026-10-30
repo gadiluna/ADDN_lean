@@ -1,0 +1,70 @@
+import Counting.StackBinaryCompareRoutine
+
+/-! Numeric comparison with preserved operands and reusable empty scratch registers. -/
+namespace Counting.StackMachine.Binary
+
+/-- Roles 0/1 are operands, 2 is Boolean output, and 3/4/5 are empty
+scratch registers. The embedding permits use inside larger programs. -/
+def preservingComparison (extra : Nat) (roles : Fin 6 ↪ Fin (extra+6)) : Routine (extra+4) :=
+  Routine.sequence
+    (Routine.ofProgram (ListPrograms.copyProgram (extra+3) (roles 0) (roles 3) (roles 5)))
+    (Routine.sequence
+      (Routine.ofProgram (ListPrograms.copyProgram (extra+3) (roles 1) (roles 4) (roles 5)))
+      (Routine.ofProgram (compareProgram (extra+3) (roles 3) (roles 4) (roles 2))))
+
+def preservingCompareCost (a b : List Bool) : Nat := 5*a.length+2+1+(5*b.length+2+1+(2*max a.length b.length+3))
+
+theorem preservingCompareCost_le (a b : List Bool) : preservingCompareCost a b ≤ 7*(a.length+b.length)+9 := by
+  have bounded : max a.length b.length ≤ a.length+b.length := by omega
+  dsimp only [preservingCompareCost]
+  omega
+
+/-- The entire final store agrees with its initial value except that the
+answer is prepended to output. Both numeric operands and all scratch are preserved. -/
+theorem preservingComparison_executes (extra : Nat) (roles : Fin 6 ↪ Fin (extra+6))
+    (store : Fin (extra+6) → List Bool)
+    (leftEmpty : store (roles 3) = []) (rightEmpty : store (roles 4) = [])
+    (workEmpty : store (roles 5) = []) :
+    Routine.Executes (preservingComparison extra roles) store
+      (preservingCompareCost (store (roles 0)) (store (roles 1)))
+      (Function.update store (roles 2) (compareBits true (store (roles 0)) (store (roles 1))::store (roles 2))) := by
+  have distinct (i j : Fin 6) (h : i ≠ j) : roles i ≠ roles j :=
+    fun equal => h (roles.injective equal)
+  let first := Function.update store (roles 3) (store (roles 0))
+  let second := Function.update first (roles 4) (store (roles 1))
+  have copiedLeft : Routine.Executes
+      (Routine.ofProgram (ListPrograms.copyProgram (extra+3) (roles 0) (roles 3) (roles 5)))
+      store (5*(store (roles 0)).length+2) first := by
+    simpa +instances only [ListPrograms.copyProgram,first,leftEmpty,List.append_nil] using
+      Routine.copy_executes (extra+3) (roles 0) (roles 3) (roles 5)
+        (distinct 0 3 (by decide)) (distinct 0 5 (by decide)) (distinct 3 5 (by decide)) store workEmpty
+  have firstAt (i : Fin 6) (h : i ≠ 3) : first (roles i) = store (roles i) := by
+    simp only [first,Function.update_of_ne (distinct i 3 h)]
+  have copiedRight : Routine.Executes
+      (Routine.ofProgram (ListPrograms.copyProgram (extra+3) (roles 1) (roles 4) (roles 5)))
+      first (5*(store (roles 1)).length+2) second := by
+    have run := Routine.copy_executes (extra+3) (roles 1) (roles 4) (roles 5)
+      (distinct 1 4 (by decide)) (distinct 1 5 (by decide)) (distinct 4 5 (by decide)) first
+      (by rw [firstAt 5 (by decide),workEmpty])
+    simpa +instances only [ListPrograms.copyProgram,firstAt 1 (by decide),firstAt 4 (by decide),rightEmpty,List.append_nil,second] using run
+  have secondLeft : second (roles 3) = store (roles 0) := by
+    simp only [second,Function.update_of_ne (distinct 3 4 (by decide)),first,Function.update_self]
+  have secondRight : second (roles 4) = store (roles 1) := by simp only [second,Function.update_self]
+  have secondOutput : second (roles 2) = store (roles 2) := by
+    simp only [second,Function.update_of_ne (distinct 2 4 (by decide)),firstAt 2 (by decide)]
+  have compared := Routine.binary_compare_executes (extra+3) (roles 3) (roles 4) (roles 2)
+    (distinct 3 4 (by decide)) (distinct 3 2 (by decide)) (distinct 4 2 (by decide)) second
+  simp +instances only [compareProgram] at compared
+  rw [secondLeft,secondRight,secondOutput] at compared
+  have restored : Function.update (Function.update second (roles 3) []) (roles 4) [] = store := by
+    funext r
+    by_cases a : r=roles 3
+    · subst r
+      simp only [Function.update_of_ne (distinct 3 4 (by decide)),Function.update_self,leftEmpty]
+    · by_cases b : r=roles 4
+      · subst r; simp only [Function.update_self,rightEmpty]
+      · simp only [Function.update_of_ne b,Function.update_of_ne a,second,first]
+  rw [restored] at compared
+  exact copiedLeft.sequence (copiedRight.sequence compared)
+
+end Counting.StackMachine.Binary

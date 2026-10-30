@@ -1,0 +1,7 @@
+import Counting.StackDagCanonicalCollectEncoding
+import Counting.StackDagCanonicalOuterLoop
+#print axioms Counting.StackMachine.DagUpdate.Canonical.collectRecords_executes
+#print axioms Counting.StackMachine.DagUpdate.Canonical.collectRecords_polynomial
+#print axioms Counting.StackMachine.DagUpdate.Canonical.collectEntries_encoded_cap
+#print axioms Counting.StackMachine.DagUpdate.Canonical.canonicalData_bounded
+#print axioms Counting.StackMachine.DagUpdate.Canonical.canonicalLoop_executes
